@@ -1,0 +1,22 @@
+{
+  "name": "writting-sass",
+  "version": "1.0.0",
+  "description": "P3_Fabienne_LIS",
+  "main": "index.js",
+  "scripts": {
+    "test": "sass --watch ./sass/style.scss:.publicnpm install node-sass ./style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabienneLIS/P3_Fabienne_LIS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FabienneLIS/P3_Fabienne_LIS/issues"
+  },
+  "homepage": "https://github.com/FabienneLIS/P3_Fabienne_LIS#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
