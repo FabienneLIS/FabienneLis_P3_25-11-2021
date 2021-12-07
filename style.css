@@ -2,10 +2,10 @@
 /*page d’accueil*/
 body {
   width: auto;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-left: 0%;
+  margin-right: 0%;
   overflow: scroll;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 .header {
@@ -15,7 +15,7 @@ body {
   margin-bottom: 2%;
 }
 .header__logo {
-  font-size: 200%;
+  font-size: 20%;
 }
 
 .nav {
@@ -91,7 +91,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2%;
-  padding-right: 20%;
+  /*padding-right: 20%;*/
   border: #f2f2f2 1px solid;
   box-shadow: #e6e6e6 5px 5px 5px 1px;
   border-radius: 20px;
@@ -118,23 +118,27 @@ body {
 }
 
 .food {
-  width: 100%;
-  padding-left: 10%;
-  padding-right: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
   margin-top: 10%;
 }
 .food__title {
   width: 40%;
-  margin-left: 20%;
+  margin-left: 30%;
   margin-right: 30%;
   text-align: center;
 }
 .food__bloc {
   display: flex;
   flex-direction: row;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .food__bloc__article {
-  width: 35%;
+  width: 40em;
   height: 30em;
   background-color: white;
   margin: 2.5%;
@@ -165,7 +169,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: gray;
-  width: 80%;
+  max-width: 80%;
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 20px;
