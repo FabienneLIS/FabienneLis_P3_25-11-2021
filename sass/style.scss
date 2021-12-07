@@ -29,10 +29,10 @@ body
 {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 80%;
     text-align: center;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
     border: $color-background 1px solid;
     border-radius: 20px;
     background-color: $color-background;
@@ -49,10 +49,16 @@ body
         height: 24px;
         &__1{
             display: flex;
+            padding-left: 20px;
             &__loca{
                 border: none;
                 background-color: $color-background2;
                 height: 24px;
+                text-align: center;
+                cursor: pointer;
+                &:focus{
+                    outline: none;
+                }
             }
         }
        
@@ -62,6 +68,8 @@ body
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
         background: linear-gradient(176deg,$color-secondary,40%, $color-primary);
         color: white;
         cursor: pointer;
@@ -71,6 +79,11 @@ body
         height: 52px;
         width: 400px;
         border-radius: 30px;
+        transform: scale(1);
+        transition: transform 1000ms;
+        &:hover{
+            transform: scale(1.1);
+        }
     }
 }
 
@@ -108,6 +121,9 @@ body
                 box-shadow: $color-background2 5px 5px 5px 1px;
                 border-radius: 20px;
                 background-color: $color-background2;
+                &:hover{
+                    background-color: $color-secondary;
+                }
                 &__number
                     {
                     height: 30px;
@@ -182,6 +198,18 @@ margin-top: 10%;
             align-items: center;
             padding-left: 2%;
             padding-right: 2%;
+            &__icon{
+                cursor: pointer;
+                color: $color-background2;    
+                    }
+               :before{
+                   color: $color-background;
+                   font-weight: bold;
+                   transition: color 2s ease-out;
+                        }
+                ::after{
+                    color: $color-primary;
+                }
             }
         }
     }
