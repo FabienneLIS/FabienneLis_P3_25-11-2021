@@ -149,6 +149,7 @@ body {
 .food__bloc {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
@@ -179,6 +180,7 @@ body {
   align-items: center;
   padding-left: 2%;
   padding-right: 2%;
+  color: black;
 }
 .food__bloc__article__legend__icon {
   cursor: pointer;
@@ -191,6 +193,10 @@ body {
 }
 .food__bloc__article__legend ::after {
   color: #9356DC;
+}
+
+a {
+  text-decoration: none;
 }
 
 .footer {
