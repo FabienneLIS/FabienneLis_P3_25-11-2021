@@ -1,0 +1,96 @@
+body {
+  width: auto;
+  background-color: #f2f2f2;
+  margin-left: 0%;
+  margin-right: 0%;
+  overflow: scroll;
+  /*overflow-x: hidden;*/
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.header__icon {
+  margin-left: -10%;
+  margin-right: 10%;
+}
+.header__logo {
+  font-size: 20%;
+  display: flex;
+}
+
+.food {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.food__image {
+  width: 100%;
+  height: auto;
+}
+.food__menu {
+  text-align: center;
+  margin-top: -20%;
+  border-radius: 40px;
+  background-color: white;
+}
+
+.food__menu__title {
+  margin-top: 5%;
+}
+
+.food__menu__carte {
+  border: #f2f2f2 solid 1px;
+  border-radius: 20px;
+  box-shadow: #e6e6e6 5px 5px 5px 1px;
+  margin: 5%;
+  text-align: center;
+}
+.food__menu__carte__ex {
+  border: #f2f2f2 solid 1px;
+  border-radius: 20px;
+  box-shadow: #e6e6e6 5px 5px 5px 1px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: left;
+  padding-left: 30%;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+  max-width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 20px;
+  padding: 2%;
+}
+.footer__logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 40%;
+  margin-bottom: 2%;
+}
+.footer__link {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+.footer__link__a {
+  text-decoration: none;
+  color: white;
+}
+
+/*# sourceMappingURL=restaurant.css.map */
