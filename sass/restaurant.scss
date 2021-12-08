@@ -24,6 +24,12 @@ body
     &__icon{
         margin-left: -10%;
         margin-right: 10%;
+        &__link{
+            cursor: pointer;
+            &:active{
+                color: black;
+            }
+        }
     }
     &__logo{
         font-size: 20%;
@@ -31,46 +37,46 @@ body
     }
 }
 
-.food{display: flex;
+.food{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
-    &__image
-{
-    width: 100%;
-    height: auto;
-}
+    &__image{
+        width: 100%;
+        height: auto;
+    }
     &__menu{
         text-align: center;
         margin-top: -20%;
         border-radius: 40px;
-        background-color: white
+        background-color: white;
+        &__title{
+            margin-top: 5%;
+        }
+        &__carte{
+            border: $color-background solid 1px;
+            border-radius: 20px;
+            box-shadow: $color-background2 5px 5px 5px 1px;
+            margin: 5%;
+            text-align: center;
+            &__ex{
+                border: $color-background solid 1px;
+                border-radius: 20px;
+                box-shadow: $color-background2 5px 5px 5px 1px;
+                margin-left: 5%;
+                margin-right: 5%;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                text-align: left;
+                padding-left: 30%; 
+            }
+        }
     }
 }
-.food__menu__title
-{
-    margin-top: 5%;
-}
-.food__menu__carte{
-    border: $color-background solid 1px;
-    border-radius: 20px;
-    box-shadow: $color-background2 5px 5px 5px 1px;
-    margin: 5%;
-    text-align: center;
-    &__ex{
-        border: $color-background solid 1px;
-        border-radius: 20px;
-        box-shadow: $color-background2 5px 5px 5px 1px;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        text-align: left;
-        padding-left: 30%; 
-    }
-}
+
 
 .footer
 {
