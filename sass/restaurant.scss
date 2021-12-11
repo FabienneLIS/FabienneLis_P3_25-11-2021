@@ -3,6 +3,52 @@ $color-secondary: #FF79DA;
 $color-tercery: #99E2D0;
 $color-background: #f2f2f2;
 $color-background2: #e6e6e6;
+$color-alpha: purple;
+
+/*margin out*/
+
+$margin-top: 0%, 2%, 6%, 10%, 40%;
+$margin-bottom: 0%, 2%, 6%, 10%, 40%;
+$margin-left: 0%, 2%, 6%, 10%, 40%;
+$margin-right: 0%, 2%, 6%, 10%, 40%;
+
+/*mixin*/
+
+@mixin flex-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin diplay-bloc {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*responsive design*/
+
+$breakpoints:
+(tablette: 900px);
+
+$breakpoints:
+(mobile: 599px);
+
+@mixin tablette-only {
+    @media screen and (max-width: map-get($breakpoints, tablette)){
+        @content;
+    }
+  }
+  @mixin mobile-only {
+    @media screen and (max-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+  }
 
 body
 {
@@ -11,9 +57,14 @@ body
     margin-left: 0%;
     margin-right: 0%;
     overflow: scroll;
-    /*overflow-x: hidden;*/ 
+    /*overflow-x: hidden;*/
 }
 
+h3, p
+{
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
 .header
 {
     display: flex;
@@ -21,6 +72,10 @@ body
     align-items: center;
     margin-top: 2%;
     margin-bottom: 2%;
+    @include mobile-only
+    {
+        width: 100%;
+    }
     &__icon{
         margin-left: -10%;
         margin-right: 10%;
@@ -34,6 +89,13 @@ body
     &__logo{
         font-size: 20%;
         display: flex;
+        &__img{
+            @include mobile-only{
+                width: 60%;
+                margin-left: 20%;
+                margin-right: 20%;
+            }
+        }
     }
 }
 
@@ -44,6 +106,14 @@ body
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
+    background-color: $color-background;
+    @include mobile-only{
+        width: 100%;
+        margin-top: 10%;
+        margin-left: 0%;
+        margin-right: 0%;
+        background-color: $color-background;
+    }
     &__image{
         width: 100%;
         height: auto;
@@ -52,9 +122,12 @@ body
         text-align: center;
         margin-top: -20%;
         border-radius: 40px;
-        background-color: white;
+        background-color: $color-background;
+        @include mobile-only{
+            background-color: $color-background;
+        }
         &__title{
-            margin-top: 5%;
+            margin-top: 10%;
         }
         &__carte{
             border: $color-background solid 1px;
@@ -62,7 +135,19 @@ body
             box-shadow: $color-background2 5px 5px 5px 1px;
             margin: 5%;
             text-align: center;
+            @include mobile-only{
+                border: none;
+                border-radius: 0%;
+                margin: 0%;
+                background-color: $color-background;
+                box-shadow: none;
+            }
             &__ex{
+                text-align: left;
+                padding-left: 0%;
+                display: flex;
+                width: 84%;
+                background-color: white;
                 border: $color-background solid 1px;
                 border-radius: 20px;
                 box-shadow: $color-background2 5px 5px 5px 1px;
@@ -70,9 +155,53 @@ body
                 margin-right: 5%;
                 margin-top: 2%;
                 margin-bottom: 2%;
-                text-align: left;
-                padding-left: 30%; 
+                padding-left: 1%;
+                @include mobile-only{
+                    width: 90%;
+                }
+                &__text{
+                    width: 80%;
+                }
+                &__price{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    width: 10%;
+                }
+                &__icon{
+                   /*display: none;*/
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 10%;
+                    height: auto;
+                    background-color: $color-tercery;
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                }
             }
+        }
+    }
+    &__order{
+        @include diplay-bloc;
+        margin-top: nth($margin-top, 2);
+        margin-bottom: 16%;
+        background: linear-gradient(176deg,$color-secondary,40%, $color-primary);
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        height: 52px;
+        width: 400px;
+        border-radius: 30px;
+        transform: scale(1);
+        transition: transform 1000ms;
+        @include mobile-only{
+            width: 60%;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        &:hover{
+            transform: scale(1.1);
         }
     }
 }
@@ -83,11 +212,17 @@ body
 display: flex;
 flex-direction: column;
 background-color: gray;
-max-width: 80%;
+width: 80%;
 margin-left: 10%;
 margin-right: 10%;
 border-radius: 20px;
 padding: 2%;
+@include mobile-only{
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    border-radius: 0px;
+}
     &__logo{
         display: block;
         margin-left: auto;
@@ -101,6 +236,9 @@ padding: 2%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 2%;
+    @include mobile-only{
+        @include flex-column;
+    }
         &__a
         {
         text-decoration: none;
