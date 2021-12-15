@@ -2,7 +2,7 @@
 /*mixin*/
 /*responsive design*/
 /*keyframes*/
-@keyframes myAnim {
+@keyframes myAnimright {
   0% {
     opacity: 0;
     transform: translateX(250px);
@@ -10,6 +10,16 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+@keyframes myAnimtop {
+  0% {
+    opacity: 0;
+    transform: translateY(-250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 /*scss*/
@@ -20,6 +30,7 @@ body {
   margin-right: 0%;
   overflow: scroll;
   /*overflow-x: hidden;*/
+  animation: myAnimtop 4s ease 0s 1 normal forwards;
 }
 
 .header {
@@ -171,7 +182,12 @@ body {
   background-color: #99E2D0;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  position: relative;
+}
+.food__menu__carte__ex:hover {
+  transform-origin: right 0%;
+  z-index: 1;
+  transform: scale();
+  animation: myAnim 1s ease 0s 1 normal forwards;
 }
 .food__order {
   display: block;
