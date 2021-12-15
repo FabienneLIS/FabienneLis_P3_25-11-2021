@@ -2,6 +2,10 @@
 /*couleur*/
 /*margin out*/
 /*mixin*/
+.read {
+  color: red;
+}
+
 /*responsive design*/
 /*page d’accueil*/
 body {
