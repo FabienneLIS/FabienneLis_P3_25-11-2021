@@ -1,6 +1,18 @@
 /*margin out*/
 /*mixin*/
 /*responsive design*/
+/*keyframes*/
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*scss*/
 body {
   width: auto;
   background-color: #f2f2f2;
@@ -149,10 +161,8 @@ body {
   width: 10%;
 }
 .food__menu__carte__ex__icon {
-  /*display: none;*/
-  position: relative;
-}
-.food__menu__carte__ex__icon:hover::after {
+  z-index: -1;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,6 +171,7 @@ body {
   background-color: #99E2D0;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  position: relative;
 }
 .food__order {
   display: block;

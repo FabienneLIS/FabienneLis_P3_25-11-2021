@@ -50,6 +50,21 @@ $breakpoints:
     }
   }
 
+  /*keyframes*/
+  @keyframes myAnim {
+    0% {
+      opacity: 0;
+      transform: translateX(250px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+/*scss*/ 
+
 body
 {
     width: auto;
@@ -187,18 +202,20 @@ body
                     width: 10%;
                 }
                 &__icon{
-                    /*display: none;*/ 
+                    z-index: -1;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 10%;
+                    height: auto;
+                    background-color: $color-tercery;
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;
                     position: relative;
                     &:hover{
                         &::after{
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            width: 10%;
-                            height: auto;
-                            background-color: $color-tercery;
-                            border-top-right-radius: 20px;
-                            border-bottom-right-radius: 20px;
+                
                         }
                     }
                 }      
