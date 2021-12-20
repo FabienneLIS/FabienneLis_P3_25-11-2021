@@ -1,8 +1,13 @@
+/*polices*/
+
+$logo-title: Shrikhand;
+$text: Roboto;
+
+/*couleur*/
 $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tercery: #99E2D0;
-$color-background: #f2f2f2;
-$color-background2: #e6e6e6;
+$color-background: #e6e6e6;
 $color-button: linear-gradient(176deg,$color-secondary,40%, $color-primary);
 
 /*margin out*/
@@ -81,14 +86,20 @@ $breakpoints:
 body
 {
     width: auto;
-    background-color: $color-background;
     margin-left: 0%;
     margin-right: 0%;
     overflow: scroll;
+    font-family: $text;
+    background-color: lighten($color-background, 10%);
     /*overflow-x: hidden;*/
     animation: myAnimtop 4s ease 0s 1 normal forwards;
 }
 
+p
+{
+    font-size: 20px;
+    margin: 0%;
+}
 .header
 {
     display: flex;
@@ -157,19 +168,30 @@ body
             align-items: center;
             margin-top: 10%;
             margin-bottom: 10%;
-                &__heart__B{
-                    z-index: -1;
-                    position: relative;
-                    margin-bottom: -120%;
-                    &:hover{
-                        z-index: 1;
-                        opacity: 1;
-                        background: $color-button;
-                    }
-                }
-                &__heart__W{
+            font-family: $logo-title;
+            &__heart__B{
+                z-index: -1;
+                position: relative;
+                margin-bottom: -120%;
+                &:hover{
                     z-index: 1;
-                }       
+                    opacity: 1;
+                    background: $color-button;
+                }
+            }
+            &__heart__W{
+                z-index: 1;
+            }       
+        }
+        &__enter{
+            border-bottom: 0.2em solid $color-tercery;
+            @include mobile-only{
+                align-items: left;
+                width: 2.5em;
+                padding-bottom: 0.3em;
+                margin-bottom: 1em;
+                margin-left: 6%;
+            }
         }
         &__carte{
             display: flex;
@@ -194,7 +216,7 @@ body
                 background-color: white;
                 border: $color-background solid 1px;
                 border-radius: 20px;
-                box-shadow: $color-background2 5px 5px 5px 1px;
+                box-shadow: $color-background 5px 5px 5px 1px;
                 margin-left: 2%;
                 margin-right: 2%;
                 margin-top: 2%;
@@ -226,11 +248,12 @@ body
                     background-color: $color-tercery;
                     border-top-right-radius: 20px;
                     border-bottom-right-radius: 20px;
+                    transform: scale(0);
                 }
                 &:hover{
                     transform-origin: right 0%;
                     z-index: 1;
-                    transform: scale();
+                    transform: scale(1);
                     animation: myAnim 1s ease 0s 1 normal forwards;
 
                 }      
@@ -238,22 +261,39 @@ body
         }
     }
     &__order{
-        @include diplay-bloc;
-        margin-top: nth($margin-top, 2);
-        margin-bottom: 16%;
-        background: $color-button;
+        @include diplay-bloc; 
+        background: linear-gradient(176deg,$color-secondary,40%, $color-primary);
         color: white;
         cursor: pointer;
-        text-align: center;
-        height: 52px;
-        width: 400px;
+        align-items: center;
+        height: 60px;
+        width: auto;
+        margin-left: 40%;
+        margin-right: 40%;
+        margin-top: 8%;
+        margin-bottom: 12%;
         border-radius: 30px;
         transform: scale(1);
-        transition: transform 1000ms;
+        transition: transform 1000ms;;
+        &--form{
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        padding-top: auto;
+        padding-bottom: auto;
+        @include tablette-only{
+            width: auto;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
         @include mobile-only{
-            width: 60%;
-            margin-left: 20%;
-            margin-right: 20%;
+            width: auto;
+            margin-left: 30%;
+            margin-right: 30%;
         }
         &:hover{
             transform: scale(1.1);
@@ -264,40 +304,61 @@ body
 
 .footer
 {
-display: flex;
-flex-direction: column;
-background-color: gray;
-width: auto;
-margin-left: 5%;
-margin-right: 5%;
-border-radius: 20px;
-padding: 2%;
-@include mobile-only{
-    width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
-    border-radius: 0px;
-}
-    &__logo{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 20px;
+    padding: 2%;
+    @include mobile-only{
+        width: auto;
+        margin-left: 0%;
+        margin-right: 0%;
+        border-radius: 0px;
+    }
+    &__title{
+        @include diplay-bloc;
         text-align: center;
-        width: 40%;
-        margin-bottom: 2%;
+        width: 80%;
+        /*font-size: 200%;*/
+        font-family: $logo-title;
+        color: white;
+        margin-top: nth($margin-top, 2);
+        margin-bottom: 36px;
+        @include mobile-only{
+            width: 100%;
+            margin-left: 6%;
+            margin-bottom: 0px;
+            font-size: 70%;
+            text-align: left;
+        }
+        &footer__title--form{
+            @include mobile-only{
+                margin-bottom: 10px;
+            }
+        }
     }
     &__link
     {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2%;
-    @include mobile-only{
-        @include flex-column;
-    }
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: nth($margin-bottom, 2);
+        margin-left: nth($margin-left, 2);
+        margin-right: nth($margin-right, 2);
+        font-size: 20px;
+        @include mobile-only{
+            @include flex-column;
+            margin-left: 6%;
+       
+        }
         &__a
         {
         text-decoration: none;
         color: white;
+        padding-top: 5px;
+        padding-bottom: 5px;
         }
     }
 }
