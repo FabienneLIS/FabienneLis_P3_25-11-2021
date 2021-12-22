@@ -179,21 +179,27 @@ p
     &__menu{
         text-align: center;
         margin-top: -20%;
-        border-radius: 2.5em;
         background-color: lighten($color-background, 10%);
         @include tablette-only{
             background-color: $color-background;
+            border-radius: 2.5em;
         }
         @include mobile-only{
             background-color: $color-background;
         }
         &__title{
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             margin-top: 10%;
             margin-bottom: 10%;
+            padding-left: 16%;
+                padding-right: 16%;
             font-family: $logo-title;
+            @include tablette-only{
+                padding-left: 6%;
+                padding-right: 6%;
+            }
             &__heart__B{
                 z-index: -1;
                 position: relative;
@@ -280,6 +286,11 @@ p
                     width: 80%;
                     padding-top: 0.8em;
                     padding-bottom: 0.8em;
+                    &--form{
+                        overflow: hidden;
+                        white-space: nowrap;
+                       text-overflow: ellipsis;
+                    }
                 }
                 &__price{
                     display: flex;
@@ -328,7 +339,7 @@ p
         transform: scale(1);
         transition: transform 1000ms;;
         &--form{
-            height: 3.75em;
+            height: 2.8em;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -339,8 +350,8 @@ p
         padding-bottom: auto;
         @include tablette-only{
             width: auto;
-            margin-left: 1.89em;
-            margin-right: 1.89em;
+            margin-left: 30%;
+            margin-right: 30%;
         }
         @include mobile-only{
             width: auto;
@@ -385,6 +396,13 @@ p
         color: white;
         margin-top: nth($margin-top, 2);
         margin-bottom: 2.25em;
+        @include tablette-only{
+            width: 100%;
+            margin-left: 6%;
+            margin-bottom: 0em;
+            font-size: 80%;
+            text-align: left;
+        }
         @include mobile-only{
             width: 100%;
             margin-left: 6%;
