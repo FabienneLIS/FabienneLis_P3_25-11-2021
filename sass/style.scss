@@ -47,18 +47,26 @@ $breakpointst:
 $breakpoints:
 (mobile: 599px);
 
+$breakpointsmax:
+(max: 599px);
+
 @mixin tablette-only {
     @media screen and (max-width: map-get($breakpointst, tablette)){
         @content;
     }
   }
+
   @mixin mobile-only {
     @media screen and (max-width: map-get($breakpoints, mobile)){
         @content;
     }
   }
 
-
+  @mixin max-only {
+    @media screen and (max-width: map-get($breakpointsmax, max)){
+        @content;
+    }
+  }
 /*page d’accueil*/
 body
 {
@@ -69,6 +77,13 @@ body
     /*overflow-x: hidden;*/
     font-family: $text;
     background-color: lighten($color-background, 10%);
+    @include max-only{
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
 }
 
 p
