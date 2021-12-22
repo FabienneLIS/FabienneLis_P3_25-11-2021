@@ -38,14 +38,14 @@ $margin-right: 0%, 2%, 6%, 10%, 40%;
 
 /*responsive design*/
 
-$breakpoints:
-(tablette: 900px);
+$breakpointst:
+(tablette: 950px);
 
 $breakpoints:
 (mobile: 599px);
 
 @mixin tablette-only {
-    @media screen and (max-width: map-get($breakpoints, tablette)){
+    @media screen and (max-width: map-get($breakpointst, tablette)){
         @content;
     }
   }
@@ -95,10 +95,15 @@ body
     animation: myAnimtop 4s ease 0s 1 normal forwards;
 }
 
+h3
+{
+    font-size: 1.3em;
+    margin: 0.2em;
+}
 p
 {
-    font-size: 20px;
-    margin: 0%;
+    font-size: 1.2em;
+    margin: 0.2em;
 }
 .header
 {
@@ -108,6 +113,9 @@ p
     width: 100%;
     margin-top: 2%;
     margin-bottom: 2%;
+    @include tablette-only{
+        width: 100%;
+    }
     @include mobile-only
     {
         width: 100%;
@@ -115,10 +123,12 @@ p
     &__icon{
         margin-left: -10%;
         margin-right: 10%;
+        color: black;
         &__link{
             cursor: pointer;
-            &:active{
-                color: black;
+            color: black;
+            &:hover{
+                color: $color-primary;
             }
         }
     }
@@ -126,6 +136,11 @@ p
         font-size: 20%;
         display: flex;
         &__img{
+            @include tablette-only{
+                width: 60%;
+                margin-left: 20%;
+                margin-right: 20%;
+            }
             @include mobile-only{
                 width: 60%;
                 margin-left: 20%;
@@ -142,7 +157,14 @@ p
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    background-color: $color-background;
+    background-color: lighten($color-background, 10%);
+    @include tablette-only{
+        width: 100%;
+        margin-top: 10%;
+        margin-left: 0%;
+        margin-right: 0%;
+        background-color: $color-background; 
+    }
     @include mobile-only{
         width: 100%;
         margin-top: 10%;
@@ -157,8 +179,11 @@ p
     &__menu{
         text-align: center;
         margin-top: -20%;
-        border-radius: 40px;
-        background-color: $color-background;
+        border-radius: 2.5em;
+        background-color: lighten($color-background, 10%);
+        @include tablette-only{
+            background-color: $color-background;
+        }
         @include mobile-only{
             background-color: $color-background;
         }
@@ -185,12 +210,23 @@ p
         }
         &__enter{
             border-bottom: 0.2em solid $color-tercery;
+            width: 2.5em;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+            margin-left: 48%;
+            @include tablette-only{
+                align-items: left;
+                width: 2.5em;
+                padding-bottom: 0.3em;
+                margin-bottom: 1em;
+                margin-left: 4%; 
+            }
             @include mobile-only{
                 align-items: left;
                 width: 2.5em;
                 padding-bottom: 0.3em;
                 margin-bottom: 1em;
-                margin-left: 6%;
+                margin-left: 4%;
             }
         }
         &__carte{
@@ -199,6 +235,15 @@ p
             flex-wrap: wrap;
             margin: 1%;
             text-align: center;
+            @include tablette-only{
+                display: flex;
+                flex-direction: column;
+                border: none;
+                border-radius: 0%;
+                margin: 0%;
+                background-color: $color-background;
+                box-shadow: none;
+            }
             @include mobile-only{
                 display: flex;
                 flex-direction: column;
@@ -216,12 +261,15 @@ p
                 background-color: white;
                 border: $color-background solid 1px;
                 border-radius: 20px;
-                box-shadow: $color-background 5px 5px 5px 1px;
+                box-shadow: $color-background 0em 0.32em 0.32em 0.062em;
                 margin-left: 2%;
                 margin-right: 2%;
                 margin-top: 2%;
                 margin-bottom: 2%;
                 padding-left: 1%;
+                @include tablette-only{
+                    width: 90%;
+                }
                 @include mobile-only{
                     width: 90%;
                     &:hover{
@@ -230,12 +278,16 @@ p
                 }
                 &__text{
                     width: 80%;
+                    padding-top: 0.8em;
+                    padding-bottom: 0.8em;
                 }
                 &__price{
                     display: flex;
                     justify-content: center;
                     align-items: flex-end;
                     width: 10%;
+                    padding-bottom: 0.8em;
+                    font-weight: bold;
                 }
                 &__icon{
                     z-index: -1;
@@ -246,8 +298,8 @@ p
                     width: 10%;
                     height: auto;
                     background-color: $color-tercery;
-                    border-top-right-radius: 20px;
-                    border-bottom-right-radius: 20px;
+                    border-top-right-radius: 1.25em;
+                    border-bottom-right-radius: 1.25em;
                     transform: scale(0);
                 }
                 &:hover{
@@ -266,17 +318,17 @@ p
         color: white;
         cursor: pointer;
         align-items: center;
-        height: 60px;
+        height: 3.75em;
         width: auto;
         margin-left: 40%;
         margin-right: 40%;
         margin-top: 8%;
         margin-bottom: 12%;
-        border-radius: 30px;
+        border-radius: 1.89em;
         transform: scale(1);
         transition: transform 1000ms;;
         &--form{
-            height: 60px;
+            height: 3.75em;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -287,8 +339,8 @@ p
         padding-bottom: auto;
         @include tablette-only{
             width: auto;
-            margin-left: 30%;
-            margin-right: 30%;
+            margin-left: 1.89em;
+            margin-right: 1.89em;
         }
         @include mobile-only{
             width: auto;
@@ -310,13 +362,19 @@ p
     width: auto;
     margin-left: 5%;
     margin-right: 5%;
-    border-radius: 20px;
+    border-radius: 1.25em;
     padding: 2%;
+    @include tablette-only{
+        width: auto;
+        margin-left: 0%;
+        margin-right: 0%;
+        border-radius: 0em;
+    }
     @include mobile-only{
         width: auto;
         margin-left: 0%;
         margin-right: 0%;
-        border-radius: 0px;
+        border-radius: 0em;
     }
     &__title{
         @include diplay-bloc;
@@ -326,17 +384,17 @@ p
         font-family: $logo-title;
         color: white;
         margin-top: nth($margin-top, 2);
-        margin-bottom: 36px;
+        margin-bottom: 2.25em;
         @include mobile-only{
             width: 100%;
             margin-left: 6%;
-            margin-bottom: 0px;
+            margin-bottom: 0em;
             font-size: 70%;
             text-align: left;
         }
         &footer__title--form{
             @include mobile-only{
-                margin-bottom: 10px;
+                margin-bottom: 0.63em;
             }
         }
     }
@@ -347,7 +405,11 @@ p
         margin-bottom: nth($margin-bottom, 2);
         margin-left: nth($margin-left, 2);
         margin-right: nth($margin-right, 2);
-        font-size: 20px;
+        font-size: 1.25em;
+        @include tablette-only{
+            @include flex-column;
+            margin-left: 6%;
+        }
         @include mobile-only{
             @include flex-column;
             margin-left: 6%;
@@ -357,8 +419,8 @@ p
         {
         text-decoration: none;
         color: white;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 0.31em;
+        padding-bottom: 0.31em;
         }
     }
 }

@@ -36,9 +36,14 @@ body {
   animation: myAnimtop 4s ease 0s 1 normal forwards;
 }
 
+h3 {
+  font-size: 1.3em;
+  margin: 0.2em;
+}
+
 p {
-  font-size: 20px;
-  margin: 0%;
+  font-size: 1.2em;
+  margin: 0.2em;
 }
 
 .header {
@@ -49,6 +54,11 @@ p {
   margin-top: 2%;
   margin-bottom: 2%;
 }
+@media screen and (max-width: 950px) {
+  .header {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 599px) {
   .header {
     width: 100%;
@@ -57,16 +67,25 @@ p {
 .header__icon {
   margin-left: -10%;
   margin-right: 10%;
+  color: black;
 }
 .header__icon__link {
   cursor: pointer;
-}
-.header__icon__link:active {
   color: black;
+}
+.header__icon__link:hover {
+  color: #9356DC;
 }
 .header__logo {
   font-size: 20%;
   display: flex;
+}
+@media screen and (max-width: 950px) {
+  .header__logo__img {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
 }
 @media screen and (max-width: 599px) {
   .header__logo__img {
@@ -83,7 +102,16 @@ p {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  background-color: #e6e6e6;
+  background-color: white;
+}
+@media screen and (max-width: 950px) {
+  .food {
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: #e6e6e6;
+  }
 }
 @media screen and (max-width: 599px) {
   .food {
@@ -101,8 +129,13 @@ p {
 .food__menu {
   text-align: center;
   margin-top: -20%;
-  border-radius: 40px;
-  background-color: #e6e6e6;
+  border-radius: 2.5em;
+  background-color: white;
+}
+@media screen and (max-width: 950px) {
+  .food__menu {
+    background-color: #e6e6e6;
+  }
 }
 @media screen and (max-width: 599px) {
   .food__menu {
@@ -132,6 +165,19 @@ p {
 }
 .food__menu__enter {
   border-bottom: 0.2em solid #99E2D0;
+  width: 2.5em;
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+  margin-left: 48%;
+}
+@media screen and (max-width: 950px) {
+  .food__menu__enter {
+    align-items: left;
+    width: 2.5em;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+    margin-left: 4%;
+  }
 }
 @media screen and (max-width: 599px) {
   .food__menu__enter {
@@ -139,7 +185,7 @@ p {
     width: 2.5em;
     padding-bottom: 0.3em;
     margin-bottom: 1em;
-    margin-left: 6%;
+    margin-left: 4%;
   }
 }
 .food__menu__carte {
@@ -148,6 +194,17 @@ p {
   flex-wrap: wrap;
   margin: 1%;
   text-align: center;
+}
+@media screen and (max-width: 950px) {
+  .food__menu__carte {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 0%;
+    margin: 0%;
+    background-color: #e6e6e6;
+    box-shadow: none;
+  }
 }
 @media screen and (max-width: 599px) {
   .food__menu__carte {
@@ -168,12 +225,17 @@ p {
   background-color: white;
   border: #e6e6e6 solid 1px;
   border-radius: 20px;
-  box-shadow: #e6e6e6 5px 5px 5px 1px;
+  box-shadow: #e6e6e6 0em 0.32em 0.32em 0.062em;
   margin-left: 2%;
   margin-right: 2%;
   margin-top: 2%;
   margin-bottom: 2%;
   padding-left: 1%;
+}
+@media screen and (max-width: 950px) {
+  .food__menu__carte__ex {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 599px) {
   .food__menu__carte__ex {
@@ -185,12 +247,16 @@ p {
 }
 .food__menu__carte__ex__text {
   width: 80%;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
 }
 .food__menu__carte__ex__price {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   width: 10%;
+  padding-bottom: 0.8em;
+  font-weight: bold;
 }
 .food__menu__carte__ex__icon {
   z-index: -1;
@@ -201,8 +267,8 @@ p {
   width: 10%;
   height: auto;
   background-color: #99E2D0;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: 1.25em;
+  border-bottom-right-radius: 1.25em;
   transform: scale(0);
 }
 .food__menu__carte__ex:hover {
@@ -219,31 +285,31 @@ p {
   color: white;
   cursor: pointer;
   align-items: center;
-  height: 60px;
+  height: 3.75em;
   width: auto;
   margin-left: 40%;
   margin-right: 40%;
   margin-top: 8%;
   margin-bottom: 12%;
-  border-radius: 30px;
+  border-radius: 1.89em;
   transform: scale(1);
   transition: transform 1000ms;
   padding-top: auto;
   padding-bottom: auto;
 }
 .food__order--form {
-  height: 60px;
+  height: 3.75em;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: auto;
   margin-bottom: auto;
 }
-@media screen and (max-width: ) {
+@media screen and (max-width: 950px) {
   .food__order {
     width: auto;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 1.89em;
+    margin-right: 1.89em;
   }
 }
 @media screen and (max-width: 599px) {
@@ -264,15 +330,23 @@ p {
   width: auto;
   margin-left: 5%;
   margin-right: 5%;
-  border-radius: 20px;
+  border-radius: 1.25em;
   padding: 2%;
+}
+@media screen and (max-width: 950px) {
+  .footer {
+    width: auto;
+    margin-left: 0%;
+    margin-right: 0%;
+    border-radius: 0em;
+  }
 }
 @media screen and (max-width: 599px) {
   .footer {
     width: auto;
     margin-left: 0%;
     margin-right: 0%;
-    border-radius: 0px;
+    border-radius: 0em;
   }
 }
 .footer__title {
@@ -285,20 +359,20 @@ p {
   font-family: Shrikhand;
   color: white;
   margin-top: 2%;
-  margin-bottom: 36px;
+  margin-bottom: 2.25em;
 }
 @media screen and (max-width: 599px) {
   .footer__title {
     width: 100%;
     margin-left: 6%;
-    margin-bottom: 0px;
+    margin-bottom: 0em;
     font-size: 70%;
     text-align: left;
   }
 }
 @media screen and (max-width: 599px) {
   .footer__titlefooter__title--form {
-    margin-bottom: 10px;
+    margin-bottom: 0.63em;
   }
 }
 .footer__link {
@@ -307,7 +381,14 @@ p {
   margin-bottom: 2%;
   margin-left: 2%;
   margin-right: 2%;
-  font-size: 20px;
+  font-size: 1.25em;
+}
+@media screen and (max-width: 950px) {
+  .footer__link {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6%;
+  }
 }
 @media screen and (max-width: 599px) {
   .footer__link {
@@ -319,8 +400,8 @@ p {
 .footer__link__a {
   text-decoration: none;
   color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 0.31em;
+  padding-bottom: 0.31em;
 }
 
 /*# sourceMappingURL=restaurant.css.map */
