@@ -1,8 +1,13 @@
+/*polices*/
+
+$logo-title: Shrikhand;
+$text: Roboto;
+
+/*couleur*/
 $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tercery: #99E2D0;
-$color-background: #f2f2f2;
-$color-background2: #e6e6e6;
+$color-background: #e6e6e6;
 $color-button: linear-gradient(176deg,$color-secondary,40%, $color-primary);
 
 /*margin out*/
@@ -33,14 +38,14 @@ $margin-right: 0%, 2%, 6%, 10%, 40%;
 
 /*responsive design*/
 
-$breakpoints:
-(tablette: 900px);
+$breakpointst:
+(tablette: 950px);
 
 $breakpoints:
 (mobile: 599px);
 
 @mixin tablette-only {
-    @media screen and (max-width: map-get($breakpoints, tablette)){
+    @media screen and (max-width: map-get($breakpointst, tablette)){
         @content;
     }
   }
@@ -81,14 +86,25 @@ $breakpoints:
 body
 {
     width: auto;
-    background-color: $color-background;
     margin-left: 0%;
     margin-right: 0%;
     overflow: scroll;
+    font-family: $text;
+    background-color: lighten($color-background, 10%);
     /*overflow-x: hidden;*/
     animation: myAnimtop 4s ease 0s 1 normal forwards;
 }
 
+h3
+{
+    font-size: 1.3em;
+    margin: 0.2em;
+}
+p
+{
+    font-size: 1.2em;
+    margin: 0.2em;
+}
 .header
 {
     display: flex;
@@ -97,6 +113,9 @@ body
     width: 100%;
     margin-top: 2%;
     margin-bottom: 2%;
+    @include tablette-only{
+        width: 100%;
+    }
     @include mobile-only
     {
         width: 100%;
@@ -104,10 +123,12 @@ body
     &__icon{
         margin-left: -10%;
         margin-right: 10%;
+        color: black;
         &__link{
             cursor: pointer;
-            &:active{
-                color: black;
+            color: black;
+            &:hover{
+                color: $color-primary;
             }
         }
     }
@@ -115,6 +136,11 @@ body
         font-size: 20%;
         display: flex;
         &__img{
+            @include tablette-only{
+                width: 60%;
+                margin-left: 20%;
+                margin-right: 20%;
+            }
             @include mobile-only{
                 width: 60%;
                 margin-left: 20%;
@@ -131,7 +157,14 @@ body
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    background-color: $color-background;
+    background-color: lighten($color-background, 10%);
+    @include tablette-only{
+        width: 100%;
+        margin-top: 10%;
+        margin-left: 0%;
+        margin-right: 0%;
+        background-color: $color-background; 
+    }
     @include mobile-only{
         width: 100%;
         margin-top: 10%;
@@ -146,30 +179,61 @@ body
     &__menu{
         text-align: center;
         margin-top: -20%;
-        border-radius: 40px;
-        background-color: $color-background;
+        background-color: lighten($color-background, 10%);
+        @include tablette-only{
+            background-color: $color-background;
+            border-radius: 2.5em;
+        }
         @include mobile-only{
             background-color: $color-background;
         }
         &__title{
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             margin-top: 10%;
             margin-bottom: 10%;
-                &__heart__B{
-                    z-index: -1;
-                    position: relative;
-                    margin-bottom: -120%;
-                    &:hover{
-                        z-index: 1;
-                        opacity: 1;
-                        background: $color-button;
-                    }
-                }
-                &__heart__W{
+            padding-left: 16%;
+                padding-right: 16%;
+            font-family: $logo-title;
+            @include tablette-only{
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+            &__heart__B{
+                z-index: -1;
+                position: relative;
+                margin-bottom: -120%;
+                &:hover{
                     z-index: 1;
-                }       
+                    opacity: 1;
+                    background: $color-button;
+                }
+            }
+            &__heart__W{
+                z-index: 1;
+            }       
+        }
+        &__enter{
+            border-bottom: 0.2em solid $color-tercery;
+            width: 2.5em;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+            margin-left: 48%;
+            @include tablette-only{
+                align-items: left;
+                width: 2.5em;
+                padding-bottom: 0.3em;
+                margin-bottom: 1em;
+                margin-left: 4%; 
+            }
+            @include mobile-only{
+                align-items: left;
+                width: 2.5em;
+                padding-bottom: 0.3em;
+                margin-bottom: 1em;
+                margin-left: 4%;
+            }
         }
         &__carte{
             display: flex;
@@ -177,6 +241,15 @@ body
             flex-wrap: wrap;
             margin: 1%;
             text-align: center;
+            @include tablette-only{
+                display: flex;
+                flex-direction: column;
+                border: none;
+                border-radius: 0%;
+                margin: 0%;
+                background-color: $color-background;
+                box-shadow: none;
+            }
             @include mobile-only{
                 display: flex;
                 flex-direction: column;
@@ -194,12 +267,15 @@ body
                 background-color: white;
                 border: $color-background solid 1px;
                 border-radius: 20px;
-                box-shadow: $color-background2 5px 5px 5px 1px;
+                box-shadow: $color-background 0em 0.32em 0.32em 0.062em;
                 margin-left: 2%;
                 margin-right: 2%;
                 margin-top: 2%;
                 margin-bottom: 2%;
                 padding-left: 1%;
+                @include tablette-only{
+                    width: 90%;
+                }
                 @include mobile-only{
                     width: 90%;
                     &:hover{
@@ -208,12 +284,21 @@ body
                 }
                 &__text{
                     width: 80%;
+                    padding-top: 0.8em;
+                    padding-bottom: 0.8em;
+                    &--form{
+                        overflow: hidden;
+                        white-space: nowrap;
+                       text-overflow: ellipsis;
+                    }
                 }
                 &__price{
                     display: flex;
                     justify-content: center;
                     align-items: flex-end;
                     width: 10%;
+                    padding-bottom: 0.8em;
+                    font-weight: bold;
                 }
                 &__icon{
                     z-index: -1;
@@ -224,13 +309,14 @@ body
                     width: 10%;
                     height: auto;
                     background-color: $color-tercery;
-                    border-top-right-radius: 20px;
-                    border-bottom-right-radius: 20px;
+                    border-top-right-radius: 1.25em;
+                    border-bottom-right-radius: 1.25em;
+                    transform: scale(0);
                 }
                 &:hover{
                     transform-origin: right 0%;
                     z-index: 1;
-                    transform: scale();
+                    transform: scale(1);
                     animation: myAnim 1s ease 0s 1 normal forwards;
 
                 }      
@@ -238,22 +324,39 @@ body
         }
     }
     &__order{
-        @include diplay-bloc;
-        margin-top: nth($margin-top, 2);
-        margin-bottom: 16%;
-        background: $color-button;
+        @include diplay-bloc; 
+        background: linear-gradient(176deg,$color-secondary,40%, $color-primary);
         color: white;
         cursor: pointer;
-        text-align: center;
-        height: 52px;
-        width: 400px;
-        border-radius: 30px;
+        align-items: center;
+        height: 3.75em;
+        width: auto;
+        margin-left: 40%;
+        margin-right: 40%;
+        margin-top: 8%;
+        margin-bottom: 12%;
+        border-radius: 1.89em;
         transform: scale(1);
-        transition: transform 1000ms;
+        transition: transform 1000ms;;
+        &--form{
+            height: 2.8em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        padding-top: auto;
+        padding-bottom: auto;
+        @include tablette-only{
+            width: auto;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
         @include mobile-only{
-            width: 60%;
-            margin-left: 20%;
-            margin-right: 20%;
+            width: auto;
+            margin-left: 30%;
+            margin-right: 30%;
         }
         &:hover{
             transform: scale(1.1);
@@ -264,40 +367,78 @@ body
 
 .footer
 {
-display: flex;
-flex-direction: column;
-background-color: gray;
-width: auto;
-margin-left: 5%;
-margin-right: 5%;
-border-radius: 20px;
-padding: 2%;
-@include mobile-only{
-    width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
-    border-radius: 0px;
-}
-    &__logo{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 1.25em;
+    padding: 2%;
+    @include tablette-only{
+        width: auto;
+        margin-left: 0%;
+        margin-right: 0%;
+        border-radius: 0em;
+    }
+    @include mobile-only{
+        width: auto;
+        margin-left: 0%;
+        margin-right: 0%;
+        border-radius: 0em;
+    }
+    &__title{
+        @include diplay-bloc;
         text-align: center;
-        width: 40%;
-        margin-bottom: 2%;
+        width: 80%;
+        /*font-size: 200%;*/
+        font-family: $logo-title;
+        color: white;
+        margin-top: nth($margin-top, 2);
+        margin-bottom: 2.25em;
+        @include tablette-only{
+            width: 100%;
+            margin-left: 6%;
+            margin-bottom: 0em;
+            font-size: 80%;
+            text-align: left;
+        }
+        @include mobile-only{
+            width: 100%;
+            margin-left: 6%;
+            margin-bottom: 0em;
+            font-size: 70%;
+            text-align: left;
+        }
+        &footer__title--form{
+            @include mobile-only{
+                margin-bottom: 0.63em;
+            }
+        }
     }
     &__link
     {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2%;
-    @include mobile-only{
-        @include flex-column;
-    }
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: nth($margin-bottom, 2);
+        margin-left: nth($margin-left, 2);
+        margin-right: nth($margin-right, 2);
+        font-size: 1.25em;
+        @include tablette-only{
+            @include flex-column;
+            margin-left: 6%;
+        }
+        @include mobile-only{
+            @include flex-column;
+            margin-left: 6%;
+       
+        }
         &__a
         {
         text-decoration: none;
         color: white;
+        padding-top: 0.31em;
+        padding-bottom: 0.31em;
         }
     }
 }

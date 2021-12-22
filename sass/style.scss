@@ -1,10 +1,14 @@
+/*polices*/
+
+$logo-title: Shrikhand;
+$text: Roboto;
+
 /*couleur*/
 
 $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tercery: #99E2D0;
-$color-background: #f2f2f2;
-$color-background2: #e6e6e6;
+$color-background: #e6e6e6;
 
 /*margin out*/
 
@@ -37,14 +41,14 @@ $margin-right: 0%, 2%, 6%, 10%, 40%;
 }
 /*responsive design*/
 
-$breakpoints:
-(tablette: 900px);
+$breakpointst:
+(tablette: 950px);
 
 $breakpoints:
 (mobile: 599px);
 
 @mixin tablette-only {
-    @media screen and (max-width: map-get($breakpoints, tablette)){
+    @media screen and (max-width: map-get($breakpointst, tablette)){
         @content;
     }
   }
@@ -54,6 +58,7 @@ $breakpoints:
     }
   }
 
+
 /*page d’accueil*/
 body
 {
@@ -62,19 +67,28 @@ body
     margin-left: nth($margin-left, 1);
     margin-right: nth($margin-right, 1);
     /*overflow-x: hidden;*/
+    font-family: $text;
+    background-color: lighten($color-background, 10%);
+}
+
+p
+{
+    font-size: 20px;
+    margin: 0%;
 }
 
 .header
 {
     @include flex-center;
     margin-top: nth($margin-top, 2);
-    margin-bottom: nth($margin-bottom, 2);
+    margin-bottom: 1.4%;
+    font-family: $text;
     &__logo{
         font-size: 20%;
-        @include mobile-only{
+        @include tablette-only{
             font-size: 0%;
-            margin-top: nth($margin-top, 3);
-            margin-bottom: nth($margin-bottom, 3);
+            margin-top: nth($margin-top, 2);
+            margin-bottom: nth($margin-bottom, 2);
         }
         &__img{
             @include mobile-only{
@@ -96,61 +110,76 @@ body
     margin-bottom: nth($margin-bottom, 3);
     border: $color-background 1px solid;
     border-radius: 20px;
-    background-color: $color-background;
-    @include mobile-only{
-        width: 100%;
-        margin-left: nth($margin-left, 1);
-        margin-right: nth($margin-right, 1);
-        border: none;
-        border-radius: 0px;
-    }
+    background-color: lighten($color-background, 8%);
+    font-family: $text;
+        @include tablette-only{
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0%;
+            border: none;
+            border-radius: 0px;
+        }
+        @include mobile-only{
+            width: 100%;
+            margin-left: nth($margin-left, 1);
+            margin-right: nth($margin-right, 1);
+            border: none;
+            border-radius: 0px;
+        }
     &__search{
         @include diplay-bloc;
+        justify-content: center;
+        align-items: center;
         margin-top: nth($margin-top, 2);
         margin-bottom: nth($margin-bottom, 2);
         padding: 1%;
-        background-color: $color-background2;
+        background-color: lighten($color-background, 3%);
         border-radius: 20px;
-        width: 300px;
-        height: 24px;
+        width: 400px;
+        height: 40px;
+        @include tablette-only{
+            width: 100%;
+            margin-top: nth($margin-top, 1);
+            border-radius: 0px;
+        }
         @include mobile-only{
             margin-top: nth($margin-top, 1);
             width: 100%;
             height: 40px;
             border-radius: 0px;
-            border-top: 2px solid $color-background2;
+            border-top: 2px solid $color-background;
         }
         &__1{
-            @include flex-center;
-            padding-left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            cursor: pointer;
             @include mobile-only{
-               padding-top: auto;
-               padding-bottom: auto;
-                padding-left: 80px;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                padding-top: auto;
+                padding-bottom: auto;
             }
-            &__loca{
-                border: none;
-                background-color: $color-background2;
-                height: 24px;
-                text-align: center;
-                cursor: pointer;
-                &:focus{
-                    outline: none;
-                }
+            &--padding{
+                margin-left: 4%;
             }
         }
 
     }
     &__text
     {
-        width: 100%;
-        margin-left: 0%;
-        margin-right: 0%;
+        width: auto;
+        margin-left: 2%;
+        margin-right: 2%;
         &__h{
             text-align: center;
+            font-size: 20px;
             width: 80%;
-            margin-left: nth($margin-left, 3);
-            margin-right: nth($margin-right, 3);
+            margin-left: 10%;
+            margin-right: 10%;
         }
         &__p{
             width: 80%;
@@ -166,18 +195,33 @@ body
     }
     &__button
     {
-        @include diplay-bloc;
-        margin-top: nth($margin-top, 2);
-        margin-bottom: 16%;
+        @include diplay-bloc; 
         background: linear-gradient(176deg,$color-secondary,40%, $color-primary);
         color: white;
         cursor: pointer;
         align-items: center;
-        height: 52px;
-        width: 400px;
+        height: 60px;
+        width: auto;
+        margin-left: 40%;
+        margin-right: 40%;
+        margin-top: 8%;
+        margin-bottom: 12%;
         border-radius: 30px;
         transform: scale(1);
         transition: transform 1000ms;
+        &__p{
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        @include tablette-only{
+            width: 60%;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
         @include mobile-only{
             width: 60%;
             margin-left: 20%;
@@ -196,6 +240,11 @@ body
     width: 80%;
     margin-left: nth($margin-left, 4);
     margin-right: nth($margin-right, 4);
+    @include tablette-only{
+        width: 100%;
+        margin-left: nth($margin-left, 1);
+        margin-right: nth($margin-right, 1);  
+    }
     @include mobile-only{
         width: 100%;
         margin-left: nth($margin-left, 1);
@@ -207,52 +256,110 @@ body
         width: 20%;
         margin-left: nth($margin-left, 5);
         margin-right: nth($margin-right, 5);
+        @include tablette-only{
+            width: 100%;
+            text-align: left;
+            margin-left: 6%
+        }
+        @include mobile-only{
+            width: 100%;
+            text-align: left;
+            margin-left: 6%
+
+        }
     }
     &__bloc
         {
-        @include flex-column;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 1%;
+        padding-right: 1%;
+        font-family: $text;
+        @include tablette-only{
+            @include flex-column;
+        
+        }
+            @include mobile-only{
+                @include flex-column;
+                padding-left: 0%;
+                padding-right: 0%;
+            }
             &__button
                 {@include flex-center;
                 align-items: center;
-                justify-content: flex-start;
-                width: 40%;
+                width: 30%;
+                height: 5.4em;
                 margin-left: auto;
                 margin-right: auto;
                 margin-top: nth($margin-top, 2);
                 margin-bottom: nth($margin-bottom, 2);
                 border: $color-background 1px solid;
-                box-shadow: $color-background2 5px 5px 5px 1px;
-                border-radius: 30px;
-                background-color: $color-background2;
+                box-shadow: $color-background 5px 5px 5px 1px;
+                border-top-right-radius: 28px;
+                border-bottom-right-radius: 28px;
+                border-top-left-radius: 30px;
+                border-bottom-left-radius: 30px;
+                background-color: lighten($color-background, 3%);
+                @include tablette-only{
+                    width: 90%;
+                }
                 @include mobile-only{
-                    width: 84%;
+                    width: 90%;
+                    margin-left: 6%;
+                    margin-right: 2%;
+                    justify-content: center;
                 }
                 &:hover{
-                    background-color: $color-secondary;
+                    background-color: lighten($color-primary, 30%);
                 }
                 &__number
                     {
                     height: 30px;
                     width: 30px;
                     border-radius: 50px;
+                    color: white;
                     background-color: $color-primary;
                     @include flex-center;
                     align-items: center;
                     position: relative;
                     right: 12px;
+                    margin-left: -4%;
+                    @include mobile-only{
+                        margin-left: -4%;
+                    }
                 }
                 &__icon
                     {
-                    margin-left: nth($margin-left, 2);
-                    margin-right: nth($margin-right, 5);
-                    color: gray;
+                    width: 10%;
+                    /*margin-left: nth($margin-left, 2);
+                    margin-right: nth($margin-right, 5);*/
+                    color: gray; 
                     &__m
                         {
                         display: none;
+                        @include mobile-only{
+                            display: inline-block;
+                        }
                     }
+                    &__c{
+                        @include mobile-only{
+                            display: none;
+                        }
+                    }
+                }
+                &__text{
+                    width: 80%;
+                    text-align: left
                 }
             }
         }
+}
+
+.demo__bloc__button:hover > .demo__bloc__button__icon
+{
+    color: #9356DC;
+    
 }
 
 .food
@@ -261,12 +368,24 @@ body
     justify-content: center;
     width: auto;
     margin-top: nth($margin-top, 4);
-    &__title
-    {
-    width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
-    text-align: center;
+    padding-bottom: 14%;
+    background-color: lighten($color-background, 10%);
+    @include tablette-only{
+        background-color: lighten($color-background, 3%);
+    }
+    &__title{
+        width: 40%;
+        margin-left: 30%;
+        margin-right: 30%;
+        text-align: center;
+        @include tablette-only{
+            text-align: left;
+            margin-left: 6%;
+        }
+        @include mobile-only{
+            text-align: left;
+            margin-left: 6%;
+        }
     }
     &__bloc
     {
@@ -274,36 +393,68 @@ body
     width: 90%;
     margin-left: nth($margin-left, 3);
     margin-right: nth($margin-right, 3);
-    @include mobile-only{
+    @include tablette-only{
         @include flex-column;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    @include mobile-only{
+        /*background-color: #9356DC;*/
+        @include flex-column;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
     }
         &__article
         {
-            width: 40em;
+            display: block;
+            position: relative;
+            width: 42%;
             height: 30em;
             background-color: white;
             margin: 2%;
             border-radius: 20px;
-            border: 0em white groove;
-            box-shadow: 5px 5px 5px 1px #e6e6e6;
-            object-fit: cover;
-            @include mobile-only(){
-                width: 86%;
+            border: 0px solid $color-background;
+            box-shadow: 0px 5px 5px 5px $color-background;
+            @include tablette-only{
+                width: auto;
                 height: 20em;
-                margin-left: 7%;
-                margin-right: 7%;
+                margin-left: 6%;
+                margin-right: 6%;
+            }
+            @include mobile-only{
+                width: auto;
+                height: 20em;
+                margin-left: 6%;
+                margin-right: 6%;
             }
             &__link{
                 text-decoration: none;
                 &__image
                 {
-                width: 100%;
-                height: 70%;
-                background-color: white;
-                background-size:0%;
-                background-position: center;
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
+                    z-index: 1;
+                    width: 100%;
+                    height: 70%;
+                    background-color: white;
+                    object-fit: cover;
+                    background-size:cover;
+                    background-position: center;
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+                &__new{
+                    display: inline-block;
+                    position: absolute;
+                    z-index: 2;
+                    top: 6%;
+                    right: 2.5%;
+                    margin-right: auto;
+                    background-color: $color-tercery;
+                    color: darken($color-tercery, 50%);
+                    padding: 0.5rem;
                 }
                 &__legend
                 {
@@ -314,17 +465,30 @@ body
                 margin-left: nth($margin-left, 2);
                 margin-right: nth($margin-right, 2);
                 color: black;
-                &__icon{
-                    cursor: pointer;
-                    color: $color-background2;
+                height: 4em;
+                    &__h2{
+                        margin-top: 0.6%;
+                        padding-top: 40px;
+                        @include mobile-only{
+                            margin-top: 0px;
+                            padding-top: 0px;
+                            margin-bottom: 0px;
                         }
-                   :before{
-                       color: $color-background;
-                       font-weight: bold;
-                       transition: color 2s ease-out;
-                            }
-                    ::after{
-                        color: $color-primary;
+                    }
+                    &__p{
+                        margin-top: 0.2%;
+                        @include mobile-only{
+                            margin-top: 6px;
+                            margin-bottom: 0px;
+                        }
+                    }
+                    &__icon{
+                        cursor: pointer;
+                        color: $color-background;
+                        /*margin-top: 100px;*/ 
+                        @include mobile-only{
+                            margin-top: 0px;
+                        }
                     }
                 }
             }
@@ -336,25 +500,47 @@ body
 
 .footer
 {
-@include flex-column;
-background-color: gray;
-width: 80%;
-margin-left: nth($margin-left, 4);
-margin-right: nth($margin-right, 4);
-border-radius: 20px;
-@include mobile-only{
-    width: 100%;
-    border-radius: 0px;
-    margin-left: nth($margin-left, 1);
-    margin-right: nth($margin-right, 1);
-    margin-top: nth($margin-right, 3);
-}
-    &__logo{
+    @include flex-column;
+    background-color: darken($color-background, 70%);
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 20px;
+    @include tablette-only{
+        width: 100%;
+        border-radius: 0px;
+        margin-left: nth($margin-left, 1);
+        margin-right: nth($margin-right, 1);
+        padding-bottom: 20px;
+    }
+    @include mobile-only{
+        width: 100%;
+        border-radius: 0px;
+        margin-left: nth($margin-left, 1);
+        margin-right: nth($margin-right, 1);
+        padding-bottom: 20px;
+    }
+    &__title{
         @include diplay-bloc;
         text-align: center;
-        width: 40%;
+        width: 80%;
+        /*font-size: 200%;*/
+        font-family: $logo-title;
+        color: white;
         margin-top: nth($margin-top, 2);
-        margin-bottom: nth($margin-bottom, 2);
+        margin-bottom: 36px;
+        @include mobile-only{
+            width: 100%;
+            margin-left: 6%;
+            margin-bottom: 0px;
+            font-size: 70%;
+            text-align: left;
+        }
+        &footer__title--form{
+            @include mobile-only{
+                margin-bottom: 10px;
+            }
+        }
     }
     &__link
     {
@@ -363,13 +549,18 @@ border-radius: 20px;
     margin-bottom: nth($margin-bottom, 2);
     margin-left: nth($margin-left, 2);
     margin-right: nth($margin-right, 2);
+    font-size: 20px;
     @include mobile-only{
         @include flex-column;
+        margin-left: 6%;
+       
     }
         &__a
         {
         text-decoration: none;
         color: white;
+        padding-top: 5px;
+        padding-bottom: 5px;
         }
     }
 }
