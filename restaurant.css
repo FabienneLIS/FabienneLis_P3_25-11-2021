@@ -35,6 +35,15 @@ body {
   /*overflow-x: hidden;*/
   animation: myAnimtop 4s ease 0s 1 normal forwards;
 }
+@media screen and (max-width: 599px) {
+  body {
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
 
 h3 {
   font-size: 1.3em;
@@ -46,9 +55,19 @@ p {
   margin: 0.2em;
 }
 
+img {
+  width: 26em;
+  height: auto;
+}
+@media screen and (max-width: 950px) {
+  img {
+    width: 12em;
+    height: auto;
+  }
+}
+
 .header {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
   margin-top: 2%;
@@ -65,8 +84,9 @@ p {
   }
 }
 .header__icon {
-  margin-left: -10%;
-  margin-right: 10%;
+  justify-content: left;
+  margin-left: 6%;
+  /*margin-right: 10%;*/
   color: black;
 }
 .header__icon__link {
@@ -77,12 +97,14 @@ p {
   color: #9356DC;
 }
 .header__logo {
-  font-size: 20%;
   display: flex;
+  justify-content: center;
+  margin-left: 30%;
 }
 @media screen and (max-width: 950px) {
   .header__logo__img {
     width: 60%;
+    height: auto;
     margin-left: 20%;
     margin-right: 20%;
   }
@@ -107,7 +129,6 @@ p {
 @media screen and (max-width: 950px) {
   .food {
     width: 100%;
-    margin-top: 10%;
     margin-left: 0%;
     margin-right: 0%;
     background-color: #e6e6e6;
@@ -116,7 +137,6 @@ p {
 @media screen and (max-width: 599px) {
   .food {
     width: 100%;
-    margin-top: 10%;
     margin-left: 0%;
     margin-right: 0%;
     background-color: #e6e6e6;
@@ -198,6 +218,7 @@ p {
 }
 .food__menu__carte {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 1%;
@@ -302,8 +323,8 @@ p {
   width: auto;
   margin-left: 40%;
   margin-right: 40%;
-  margin-top: 8%;
-  margin-bottom: 12%;
+  margin-top: 12%;
+  margin-bottom: 24%;
   border-radius: 1.89em;
   transform: scale(1);
   transition: transform 1000ms;
@@ -339,7 +360,7 @@ p {
 .footer {
   display: flex;
   flex-direction: column;
-  background-color: gray;
+  background-color: #343434;
   width: auto;
   margin-left: 5%;
   margin-right: 5%;
