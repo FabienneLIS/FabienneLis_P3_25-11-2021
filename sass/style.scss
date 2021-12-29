@@ -9,6 +9,7 @@ $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tercery: #99E2D0;
 $color-background: #e6e6e6;
+$color-button: linear-gradient(176deg,$color-secondary,40%, $color-primary);
 
 /*margin out*/
 
@@ -67,6 +68,27 @@ $breakpointsmax:
         @content;
     }
   }
+
+  /*animation*/ 
+
+   /*animation loader*/
+
+   /*animation loader dissapear*/
+   @keyframes disappear {
+       from {
+           transform: scale(1);
+       }
+       to {
+           transform: scale(0)
+       }
+   }
+
+   /*animation loader spin*/
+   @keyframes spin {
+       to {
+           transform: rotate(360deg);
+       }
+   }
 /*page d’accueil*/
 body
 {
@@ -85,6 +107,26 @@ body
         overflow-x: hidden;
     }
 }
+
+
+.loader{
+    background-color: $color-background;
+    opacity: 0.9;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    animation: disappear 2s 5s forwards;
+    transform-origin: top;
+    display: grid;
+    place-items: center;
+    i{
+        opacity: 1;
+        animation: spin 3s infinite linear;
+        color: $color-primary;
+    }
+  }
+  
 
 p
 {
@@ -353,13 +395,18 @@ p
                     &__m
                         {
                         display: none;
+                        .fas{
+                            color: gray;
+                        }
                         @include mobile-only{
                             display: inline-block;
+                            
                         }
                     }
                     &__c{
                         @include mobile-only{
                             display: none;
+                            opacity: 1;
                         }
                     }
                 }
@@ -479,9 +526,9 @@ p
                 align-items: center;
                 margin-left: nth($margin-left, 2);
                 margin-right: nth($margin-right, 2);
-                color: black;
                 height: 4em;
                     &__h2{
+                        color: black;
                         margin-top: 0.6%;
                         padding-top: 40px;
                         @include mobile-only{
@@ -491,6 +538,7 @@ p
                         }
                     }
                     &__p{
+                        color: black;
                         margin-top: 0.2%;
                         @include mobile-only{
                             margin-top: 6px;
@@ -500,19 +548,49 @@ p
                     &__icon{
                         cursor: pointer;
                         color: $color-background;
-                        /*margin-top: 100px;*/ 
+                        /*margin-top: 100px;*/
+                        i{
+                            bottom: 50%;
+                            position: relative;
+                        }
+                        &__W{
+                            color: black;
+                            position: absolute;
+                            bottom: 20em;
+                        }
+                     
                         @include mobile-only{
                             margin-top: 0px;
                         }
                     }
                 }
+  
             }
 
         }
     }
 }
 
+.heart--far{
+    position: relative;
+    color: black;
+    
+}
+.heart--fas{
+    position: absolute;
+    transform: translateX(-100%);
+    color: transparent;
+    background-image: $color-button;
+    background-clip: text;
+    -webkit-background-clip: text;
+    opacity: 0;
+}
 
+.food__bloc__article:hover .heart--fas
+{
+    opacity: 1;
+    transform: translateX(-100%) scale(1.2);
+}
 .footer
 {
     @include flex-column;

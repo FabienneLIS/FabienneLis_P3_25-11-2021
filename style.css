@@ -8,6 +8,23 @@
 }
 
 /*responsive design*/
+/*animation*/
+/*animation loader*/
+/*animation loader dissapear*/
+@keyframes disappear {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+/*animation loader spin*/
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 /*page d’accueil*/
 body {
   overflow: scroll;
@@ -26,6 +43,24 @@ body {
     overflow: scroll;
     overflow-x: hidden;
   }
+}
+
+.loader {
+  background-color: #e6e6e6;
+  opacity: 0.9;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  animation: disappear 2s 5s forwards;
+  transform-origin: top;
+  display: grid;
+  place-items: center;
+}
+.loader i {
+  opacity: 1;
+  animation: spin 3s infinite linear;
+  color: #9356DC;
 }
 
 p {
@@ -335,6 +370,9 @@ p {
 .demo__bloc__button__icon__m {
   display: none;
 }
+.demo__bloc__button__icon__m .fas {
+  color: gray;
+}
 @media screen and (max-width: 599px) {
   .demo__bloc__button__icon__m {
     display: inline-block;
@@ -343,6 +381,7 @@ p {
 @media screen and (max-width: 599px) {
   .demo__bloc__button__icon__c {
     display: none;
+    opacity: 1;
   }
 }
 .demo__bloc__button__text {
@@ -474,10 +513,10 @@ p {
   align-items: center;
   margin-left: 2%;
   margin-right: 2%;
-  color: black;
   height: 4em;
 }
 .food__bloc__article__link__legend__h2 {
+  color: black;
   margin-top: 0.6%;
   padding-top: 40px;
 }
@@ -489,6 +528,7 @@ p {
   }
 }
 .food__bloc__article__link__legend__p {
+  color: black;
   margin-top: 0.2%;
 }
 @media screen and (max-width: 599px) {
@@ -502,10 +542,39 @@ p {
   color: #e6e6e6;
   /*margin-top: 100px;*/
 }
+.food__bloc__article__link__legend__icon i {
+  bottom: 50%;
+  position: relative;
+}
+.food__bloc__article__link__legend__icon__W {
+  color: black;
+  position: absolute;
+  bottom: 20em;
+}
 @media screen and (max-width: 599px) {
   .food__bloc__article__link__legend__icon {
     margin-top: 0px;
   }
+}
+
+.heart--far {
+  position: relative;
+  color: black;
+}
+
+.heart--fas {
+  position: absolute;
+  transform: translateX(-100%);
+  color: transparent;
+  background-image: linear-gradient(176deg, #FF79DA, 40%, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+}
+
+.food__bloc__article:hover .heart--fas {
+  opacity: 1;
+  transform: translateX(-100%) scale(1.2);
 }
 
 .footer {
