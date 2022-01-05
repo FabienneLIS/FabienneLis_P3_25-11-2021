@@ -1,73 +1,7 @@
-/*polices*/
 
-$logo-title: Shrikhand;
-$text: Roboto;
-
-/*couleur*/
-
-$color-primary: #9356DC;
-$color-secondary: #FF79DA;
-$color-tercery: #99E2D0;
-$color-background: #e6e6e6;
-$color-button: linear-gradient(176deg,$color-secondary,40%, $color-primary);
-
-/*margin out*/
-
-$margin-top: 0%, 2%, 6%, 10%, 40%;
-$margin-bottom: 0%, 2%, 6%, 10%, 40%;
-$margin-left: 0%, 2%, 6%, 10%, 40%;
-$margin-right: 0%, 2%, 6%, 10%, 40%;
-
-/*mixin*/
-
-@mixin flex-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-@mixin flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-@mixin diplay-bloc {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.read
-{
-  color: red;
-}
-/*responsive design*/
-
-$breakpointst:
-(tablette: 950px);
-
-$breakpoints:
-(mobile: 599px);
-
-$breakpointsmax:
-(max: 599px);
-
-@mixin tablette-only {
-    @media screen and (max-width: map-get($breakpointst, tablette)){
-        @content;
-    }
-  }
-
-  @mixin mobile-only {
-    @media screen and (max-width: map-get($breakpoints, mobile)){
-        @content;
-    }
-  }
-
-  @mixin max-only {
-    @media screen and (max-width: map-get($breakpointsmax, max)){
-        @content;
-    }
-  }
+@import "./Utils/variables";
+@import "./Utils/mixins";
+@import "./Utils/responsives";
 
   /*animation*/ 
 
@@ -94,8 +28,8 @@ body
 {
     overflow: scroll;
     width: auto;
-    margin-left: nth($margin-left, 1);
-    margin-right: nth($margin-right, 1);
+    margin-left: 0%;
+    margin-right: 0%;
     /*overflow-x: hidden;*/
     font-family: $text;
     background-color: lighten($color-background, 10%);
@@ -110,19 +44,19 @@ body
 
 
 .loader{
-    background-color: $color-background;
+    background-color: lighten($color-secondary, 22%);
     opacity: 0.9;
     height: 100vh;
     position: fixed;
     inset: 0;
     z-index: 3;
-    animation: disappear 2s 5s forwards;
-    transform-origin: top;
+    animation: disappear 400ms 1s forwards;
+    transform-origin: center;
     display: grid;
     place-items: center;
     i{
         opacity: 1;
-        animation: spin 3s infinite linear;
+        animation: spin 1s infinite linear;
         color: $color-primary;
     }
   }
@@ -137,15 +71,15 @@ p
 .header
 {
     @include flex-center;
-    margin-top: nth($margin-top, 2);
+    margin-top: 2%;
     margin-bottom: 1.4%;
     font-family: $text;
     &__logo{
         font-size: 20%;
         @include tablette-only{
             font-size: 0%;
-            margin-top: nth($margin-top, 2);
-            margin-bottom: nth($margin-bottom, 2);
+            margin-top: 2%;
+            margin-bottom: 2%;
         }
         &__img{
             @include mobile-only{
@@ -162,9 +96,9 @@ p
     @include flex-column;
     width: 80%;
     text-align: center;
-    margin-left: nth($margin-left, 4);
-    margin-right: nth($margin-right, 4);
-    margin-bottom: nth($margin-bottom, 3);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 6%;
     border: $color-background 1px solid;
     border-radius: 20px;
     background-color: lighten($color-background, 8%);
@@ -178,8 +112,8 @@ p
         }
         @include mobile-only{
             width: 100%;
-            margin-left: nth($margin-left, 1);
-            margin-right: nth($margin-right, 1);
+            margin-left: 0%;
+            margin-right: 0%;
             border: none;
             border-radius: 0px;
         }
@@ -187,8 +121,8 @@ p
         @include diplay-bloc;
         justify-content: center;
         align-items: center;
-        margin-top: nth($margin-top, 2);
-        margin-bottom: nth($margin-bottom, 2);
+        margin-top: 2%;
+        margin-bottom: 2%;
         padding: 1%;
         background-color: lighten($color-background, 3%);
         border-radius: 20px;
@@ -196,11 +130,11 @@ p
         height: 40px;
         @include tablette-only{
             width: 100%;
-            margin-top: nth($margin-top, 1);
+            margin-top: 0%;
             border-radius: 0px;
         }
         @include mobile-only{
-            margin-top: nth($margin-top, 1);
+            margin-top: 0%;
             width: 100%;
             height: 40px;
             border-radius: 0px;
@@ -239,9 +173,9 @@ p
             margin-right: 10%;
         }
         &__p{
-            width: 80%;
-            margin-left: nth($margin-left, 3);
-            margin-right: nth($margin-right, 3);
+            width: 88%;
+            margin-left: 6%;
+            margin-right: 6%;
             @include mobile-only{
                 width: 90%;
                 margin-left: 5%;
@@ -295,24 +229,24 @@ p
     @include flex-column;
     justify-content: center;
     width: 80%;
-    margin-left: nth($margin-left, 4);
-    margin-right: nth($margin-right, 4);
+    margin-left: 10%;
+    margin-right: 10%;
     @include tablette-only{
         width: 100%;
-        margin-left: nth($margin-left, 1);
-        margin-right: nth($margin-right, 1);  
+        margin-left: 0%;
+        margin-right: 0%;  
     }
     @include mobile-only{
         width: 100%;
-        margin-left: nth($margin-left, 1);
-        margin-right: nth($margin-right, 1);
+        margin-left: 0%;
+        margin-right: 0%;
     }
     &__title
         {
         text-align: center;
         width: 20%;
-        margin-left: nth($margin-left, 5);
-        margin-right: nth($margin-right, 5);
+        margin-left: 40%;
+        margin-right: 40%;
         @include tablette-only{
             width: 100%;
             text-align: left;
@@ -349,8 +283,8 @@ p
                 height: 5.4em;
                 margin-left: auto;
                 margin-right: auto;
-                margin-top: nth($margin-top, 2);
-                margin-bottom: nth($margin-bottom, 2);
+                margin-top: 2%;
+                margin-bottom: 2%;
                 border: $color-background 1px solid;
                 box-shadow: $color-background 5px 5px 5px 1px;
                 border-top-right-radius: 28px;
@@ -389,14 +323,12 @@ p
                 &__icon
                     {
                     width: 10%;
-                    /*margin-left: nth($margin-left, 2);
-                    margin-right: nth($margin-right, 5);*/
-                    color: gray; 
+                    color: darken($color-background , 40%); 
                     &__m
                         {
                         display: none;
                         .fas{
-                            color: gray;
+                            color: darken($color-background , 40%);
                         }
                         @include mobile-only{
                             display: inline-block;
@@ -429,7 +361,7 @@ p
     @include flex-column;
     justify-content: center;
     width: auto;
-    margin-top: nth($margin-top, 4);
+    margin-top: 10%;
     padding-bottom: 14%;
     background-color: lighten($color-background, 10%);
     @include tablette-only{
@@ -453,8 +385,8 @@ p
     {
     @include flex-center;
     width: 90%;
-    margin-left: nth($margin-left, 3);
-    margin-right: nth($margin-right, 3);
+    margin-left: 6%;
+    margin-right: 6%;
     @include tablette-only{
         @include flex-column;
         width: 100%;
@@ -462,7 +394,6 @@ p
         margin-right: 0%;
     }
     @include mobile-only{
-        /*background-color: #9356DC;*/
         @include flex-column;
         width: 100%;
         margin-left: 0%;
@@ -524,8 +455,8 @@ p
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                margin-left: nth($margin-left, 2);
-                margin-right: nth($margin-right, 2);
+                margin-left: 2%;
+                margin-right: 2%;
                 height: 4em;
                     &__h2{
                         color: black;
@@ -548,7 +479,6 @@ p
                     &__icon{
                         cursor: pointer;
                         color: $color-background;
-                        /*margin-top: 100px;*/
                         i{
                             bottom: 50%;
                             position: relative;
@@ -602,15 +532,15 @@ p
     @include tablette-only{
         width: 100%;
         border-radius: 0px;
-        margin-left: nth($margin-left, 1);
-        margin-right: nth($margin-right, 1);
+        margin-left: 0%;
+        margin-right: 0%;
         padding-bottom: 20px;
     }
     @include mobile-only{
         width: 100%;
         border-radius: 0px;
-        margin-left: nth($margin-left, 1);
-        margin-right: nth($margin-right, 1);
+        margin-left: 0%;
+        margin-right: 0%;
         padding-bottom: 20px;
     }
     &__title{
@@ -620,7 +550,7 @@ p
         /*font-size: 200%;*/
         font-family: $logo-title;
         color: white;
-        margin-top: nth($margin-top, 2);
+        margin-top: 2%;
         margin-bottom: 36px;
         @include mobile-only{
             width: 100%;
@@ -639,9 +569,9 @@ p
     {
     display: flex;
     justify-content: space-between;
-    margin-bottom: nth($margin-bottom, 2);
-    margin-left: nth($margin-left, 2);
-    margin-right: nth($margin-right, 2);
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
     font-size: 20px;
     @include mobile-only{
         @include flex-column;

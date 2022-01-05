@@ -1,0 +1,18 @@
+/*mixin*/
+
+@mixin flex-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin diplay-bloc {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
