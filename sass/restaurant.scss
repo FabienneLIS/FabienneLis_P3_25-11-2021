@@ -1,15 +1,7 @@
-/*polices*/
 
-$logo-title: Shrikhand;
-$text: Roboto;
-
-/*couleur*/
-$color-primary: #9356DC;
-$color-secondary: #FF79DA;
-$color-tercery: #99E2D0;
-$color-background: #e6e6e6;
-$color-button: linear-gradient(176deg,$color-secondary,40%, $color-primary);
-
+@import "./Utils/variables";
+@import "./Utils/mixins";
+@import "./Utils/responsives";
 /*margin out*/
 
 $margin-top: 0%, 2%, 6%, 10%, 40%;
@@ -17,54 +9,6 @@ $margin-bottom: 0%, 2%, 6%, 10%, 40%;
 $margin-left: 0%, 2%, 6%, 10%, 40%;
 $margin-right: 0%, 2%, 6%, 10%, 40%;
 
-/*mixin*/
-
-@mixin flex-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-@mixin flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-@mixin diplay-bloc {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/*responsive design*/
-
-$breakpointst:
-(tablette: 950px);
-
-$breakpoints:
-(mobile: 599px);
-
-$breakpointsmax:
-(max: 599px);
-
-
-@mixin tablette-only {
-    @media screen and (max-width: map-get($breakpointst, tablette)){
-        @content;
-    }
-  }
-
-  @mixin mobile-only {
-    @media screen and (max-width: map-get($breakpoints, mobile)){
-        @content;
-    }
-  }
-
-  @mixin max-only {
-    @media screen and (max-width: map-get($breakpointsmax, max)){
-        @content;
-    }
-  }
 
   /*keyframes*/
 
@@ -96,6 +40,18 @@ $breakpointsmax:
     }
   }
 
+  /*animation green button*/
+
+    /*animation button*/
+    @keyframes bgreen {
+        0% {
+            transform: scaleX(0);
+        }
+        100% {
+            transform: scaleX(1);
+        }
+    }
+  
     /*animation loader small spin*/
     @keyframes move {
         0% {
@@ -107,24 +63,25 @@ $breakpointsmax:
         }
     }
 
-      /*animation loader*/
+    /*animation loader*/
 
-   /*animation loader dissapear*/
-   @keyframes disappear {
-    from {
-        transform: scale(1);
+         /*animation loader dissapear*/
+        @keyframes disappear {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(0)
+        }
     }
-    to {
-        transform: scale(0)
-    }
-}
 
-    /*animation loader spin*/
-    @keyframes spin {
-    to {
-        transform: rotate(360deg);
+        /*animation loader spin*/
+        @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
     }
-}
+
 /*scss*/ 
 
 body
@@ -167,19 +124,19 @@ img
 }
 
 .loader{
-    background-color: $color-background;
+    background-color: lighten($color-secondary, 22%);
     opacity: 0.9;
     height: 100vh;
     position: fixed;
     inset: 0;
     z-index: 3;
-    animation: disappear 400ms 2s forwards;
-    transform-origin: top;
+    animation: disappear 400ms 1s forwards;
+    transform-origin: center;
     display: grid;
     place-items: center;
     i{
         opacity: 1;
-        animation: spin 2s infinite linear;
+        animation: spin 1s infinite linear;
         color: $color-primary;
     }
   }
@@ -219,13 +176,13 @@ img
             @include tablette-only{
                 width: 60%;
                 height: auto;
-                margin-left: 20%;
-                margin-right: 20%;
+                margin-left: 0%;
+                margin-right: 45%;
             }
             @include mobile-only{
                 width: 60%;
-                margin-left: 20%;
-                margin-right: 20%;
+                margin-left: 0%;
+                margin-right: 45%;
             }
         }
     }
@@ -235,9 +192,9 @@ img
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
     background-color: lighten($color-background, 10%);
     @include tablette-only{
         width: 100%;
@@ -276,26 +233,24 @@ img
             margin-top: 10%;
             margin-bottom: 10%;
             padding-left: 16%;
-                padding-right: 16%;
+            padding-right: 16%;
             font-family: $logo-title;
             @include tablette-only{
                 padding-left: 6%;
                 padding-right: 6%;
             }
-            &__heart__B{
-                z-index: -1;
-                position: relative;
-                margin-bottom: -120%;
-                &:hover{
-                    z-index: 1;
-                    opacity: 1;
-                    background: $color-button;
+            &__icon{
+                cursor: pointer;
+                color: $color-background;
+                i{
+                    position: relative;
+                }
+                @include mobile-only{
+                    margin-top: 0px;
                 }
             }
-            &__heart__W{
-                z-index: 1;
-            }       
-        }
+        }    
+            
         &__enter{
             border-bottom: 0.2em solid $color-tercery;
             width: 2.5em;
@@ -346,7 +301,7 @@ img
                 text-align: left;
                 padding-left: 0%;
                 display: flex;
-                width: 22em;
+                width: 31.25em;
                 height: 5em;
                 background-color: white;
                 border: $color-background solid 1px;
@@ -356,7 +311,7 @@ img
                 margin-right: 2%;
                 margin-top: 2%;
                 margin-bottom: 2%;
-                padding-left: 1%;
+                padding-left: 1em;
                 overflow: hidden;
                 @include tablette-only{
                     width: 90%;
@@ -371,6 +326,10 @@ img
                     width: 80%;
                     padding-top: 0.8em;
                     padding-bottom: 0.8em;
+                    padding-left: 0.4em;
+                    @include mobile-only{
+                        width: 70%;
+                    }
                     &--form{
                         overflow: hidden;
                         white-space: nowrap;
@@ -381,23 +340,24 @@ img
                     display: flex;
                     justify-content: center;
                     align-items: flex-end;
-                    width: 10%;
+                    width: 20%;
                     padding-bottom: 0.8em;
                     font-weight: bold;
+                    @include mobile-only{
+                        width: 15%;
+                    }
                 }
                 &__icon{
-                    display: flex;
+                    display: none;
                     color: white;
                     justify-content: center;
                     align-items: center;
-                    position: relative;
-                    width: 3em;
-                    margin-left: 10em;
-                    height: 100%;
+                    width: 0%;
                     height: auto;
                     background-color: $color-tercery;
                     border-top-right-radius: 1.25em;
                     border-bottom-right-radius: 1.25em;
+                    transform-origin: right;
                 }      
             }
         }
@@ -443,10 +403,39 @@ img
     }
 }
 
+.heart--far{
+    position: relative;
+    left: 4%;
+    color: black;
+    
+}
+.heart--fas{
+    position: absolute;
+    transform: translateX(-100%);
+    color: transparent;
+    background-image: $color-button;
+    background-clip: text;
+    -webkit-background-clip: text;
+    opacity: 0;
+}
+
+.food__menu__title:hover .heart--fas
+{
+    opacity: 1;
+    transform: translateX(-100%) scale(1.2);
+}
+
+
 .food__menu__carte__ex:hover{
     .food__menu__carte__ex__icon
     {
-        margin-left: 0em;
+        display: inline-flex;
+        width: 15%;
+        margin-right: 0em;
+        animation: bgreen 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        @include mobile-only{
+            width: 15%;
+        }
     }
     i{
         animation: move 1s;

@@ -1,12 +1,7 @@
 @charset "UTF-8";
 /*polices*/
 /*couleur*/
-/*margin out*/
 /*mixin*/
-.read {
-  color: red;
-}
-
 /*responsive design*/
 /*animation*/
 /*animation loader*/
@@ -35,7 +30,7 @@ body {
   font-family: Roboto;
   background-color: white;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1800px) {
   body {
     max-width: 1800px;
     margin-left: auto;
@@ -46,20 +41,20 @@ body {
 }
 
 .loader {
-  background-color: #e6e6e6;
+  background-color: #ffe9f9;
   opacity: 0.9;
   height: 100vh;
   position: fixed;
   inset: 0;
   z-index: 3;
-  animation: disappear 2s 5s forwards;
-  transform-origin: top;
+  animation: disappear 400ms 1s forwards;
+  transform-origin: center;
   display: grid;
   place-items: center;
 }
 .loader i {
   opacity: 1;
-  animation: spin 3s infinite linear;
+  animation: spin 1s infinite linear;
   color: #9356DC;
 }
 
@@ -188,7 +183,7 @@ p {
   margin-right: 10%;
 }
 .nav__text__p {
-  width: 80%;
+  width: 88%;
   margin-left: 6%;
   margin-right: 6%;
 }
@@ -363,8 +358,6 @@ p {
 }
 .demo__bloc__button__icon {
   width: 10%;
-  /*margin-left: nth($margin-left, 2);
-  margin-right: nth($margin-right, 5);*/
   color: gray;
 }
 .demo__bloc__button__icon__m {
@@ -444,7 +437,6 @@ p {
 }
 @media screen and (max-width: 599px) {
   .food__bloc {
-    /*background-color: #9356DC;*/
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -540,7 +532,6 @@ p {
 .food__bloc__article__link__legend__icon {
   cursor: pointer;
   color: #e6e6e6;
-  /*margin-top: 100px;*/
 }
 .food__bloc__article__link__legend__icon i {
   bottom: 50%;
