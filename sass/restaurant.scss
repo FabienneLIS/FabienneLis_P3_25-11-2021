@@ -217,7 +217,7 @@ img
             background-color: $color-background;
         }
         &__transition{
-            animation: myAnimtop 6s ease 2s 1 normal forwards;
+            animation: myAnimtop 6s 1s both;
         }
         &__title{
             display: flex;

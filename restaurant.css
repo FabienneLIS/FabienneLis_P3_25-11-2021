@@ -216,7 +216,7 @@ img {
   }
 }
 .food__menu__transition {
-  animation: myAnimtop 6s ease 2s 1 normal forwards;
+  animation: myAnimtop 6s 1s both;
 }
 .food__menu__title {
   display: flex;
