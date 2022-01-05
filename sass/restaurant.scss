@@ -2,13 +2,6 @@
 @import "./Utils/variables";
 @import "./Utils/mixins";
 @import "./Utils/responsives";
-/*margin out*/
-
-$margin-top: 0%, 2%, 6%, 10%, 40%;
-$margin-bottom: 0%, 2%, 6%, 10%, 40%;
-$margin-left: 0%, 2%, 6%, 10%, 40%;
-$margin-right: 0%, 2%, 6%, 10%, 40%;
-
 
   /*keyframes*/
 
@@ -471,7 +464,7 @@ img
         /*font-size: 200%;*/
         font-family: $logo-title;
         color: white;
-        margin-top: nth($margin-top, 2);
+        margin-top: 2%;
         margin-bottom: 2.25em;
         @include tablette-only{
             width: 100%;
@@ -497,9 +490,9 @@ img
     {
         display: flex;
         justify-content: space-between;
-        margin-bottom: nth($margin-bottom, 2);
-        margin-left: nth($margin-left, 2);
-        margin-right: nth($margin-right, 2);
+        margin-bottom: 2%;
+        margin-left: 2%;
+        margin-right: 2%;
         font-size: 1.25em;
         @include tablette-only{
             @include flex-column;
