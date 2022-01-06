@@ -442,11 +442,11 @@ img
 
 .food__menu__title__icon:hover .heart--fas
 {
-    animation: heart 3s 200ms cubic-bezier(.8,-0.18,.21,1.19) forwards;
+    animation: heart 6s 200ms cubic-bezier(.8,-0.18,.21,1.19) forwards;
 }
 .food__menu__title__icon:hover .heart--far
 {
-    animation: heartback 2s 1s linear forwards;
+    animation: heartback 6s 1s linear forwards;
 }
 
 
