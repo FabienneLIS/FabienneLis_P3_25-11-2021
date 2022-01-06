@@ -20,6 +20,27 @@
     transform: rotate(360deg);
   }
 }
+/*animation heart*/
+@keyframes heart {
+  0% {
+    opacity: 0;
+    transform: translateY(0%);
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(10%);
+    transform: scale(1.1);
+  }
+}
+@keyframes heartback {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
 /*page d’accueil*/
 body {
   overflow: scroll;
@@ -531,16 +552,6 @@ p {
 }
 .food__bloc__article__link__legend__icon {
   cursor: pointer;
-  color: #e6e6e6;
-}
-.food__bloc__article__link__legend__icon i {
-  bottom: 50%;
-  position: relative;
-}
-.food__bloc__article__link__legend__icon__W {
-  color: black;
-  position: absolute;
-  bottom: 20em;
 }
 @media screen and (max-width: 599px) {
   .food__bloc__article__link__legend__icon {
@@ -555,17 +566,29 @@ p {
 
 .heart--fas {
   position: absolute;
-  transform: translateX(-100%);
+  right: 1.96%;
+  bottom: 18.8%;
+  opacity: 0;
   color: transparent;
   background-image: linear-gradient(176deg, #FF79DA, 40%, #9356DC);
   background-clip: text;
   -webkit-background-clip: text;
-  opacity: 0;
+  transform-origin: bottom;
+  transition-duration: 2s;
+  transition-delay: 400ms;
+}
+@media screen and (max-width: 950px) {
+  .heart--fas {
+    bottom: 13%;
+  }
 }
 
 .food__bloc__article:hover .heart--fas {
-  opacity: 1;
-  transform: translateX(-100%) scale(1.2);
+  animation: heart 2s 200ms cubic-bezier(0.8, -0.18, 0.21, 1.19) forwards;
+}
+
+.food__bloc__article:hover .heart--far {
+  animation: heartback 2s 1s linear forwards;
 }
 
 .footer {
