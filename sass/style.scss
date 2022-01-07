@@ -540,7 +540,7 @@ p
 
 .food__bloc__article:hover .heart--fas
 {
-    animation: heart 2s 200ms cubic-bezier(.35,.41,.06,.99) forwards;
+    animation: heart 2s 100ms cubic-bezier(.35,.41,.06,.99) forwards;
 }
 
 .food__bloc__article:hover .heart--far
