@@ -91,9 +91,11 @@
 
     @keyframes heartback{
         0%{
+            opacity: 1;
             transform: scale(1);
         }
         100%{
+            opacity: 0;
             transform: scale(0.9);
         }
     }
@@ -442,11 +444,11 @@ img
 
 .food__menu__title__icon:hover .heart--fas
 {
-    animation: heart 6s 200ms cubic-bezier(.8,-0.18,.21,1.19) forwards;
+    animation: heart 2s 200ms cubic-bezier(.35,.41,.06,.99) forwards;
 }
 .food__menu__title__icon:hover .heart--far
 {
-    animation: heartback 6s 1s linear forwards;
+    animation: heartback 2s 1s linear forwards;
 }
 
 
