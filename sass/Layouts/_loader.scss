@@ -1,0 +1,18 @@
+.loader{
+    background-color: lighten($color-secondary, 22%);
+    opacity: 0.9;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    @include disappear;
+    transform-origin: center;
+    display: grid;
+    place-items: center;
+    i{
+        opacity: 1;
+        @include spin;
+        color: $color-primary;
+    }
+  }
+  
