@@ -1,0 +1,106 @@
+
+   /*keyframes animation*/ 
+
+   /*animation loader*/
+
+   /*animation loader dissapear*/
+   @keyframes disappear1 {
+        from {
+            transform: scale(1);
+        }
+        to {    
+            transform: scale(0)
+        }
+    }
+    @mixin disappear {
+        animation: disappear1 400ms 1s forwards;
+    }
+
+    /*animation loader spin*/
+    @keyframes spin1 {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @mixin spin {
+        animation: spin1 1s infinite linear;
+    }
+
+
+ /*animation heart*/
+
+    @keyframes heart1{
+        0%{
+            opacity: 0;
+            transform: translateY(0%);
+            transform: scale(0);
+        }
+        100% {
+            opacity: 1;
+            transform:translateY(10%);
+            transform: scale(1.1);
+        }
+    }
+    @mixin heart {
+        animation: heart1 2s 100ms cubic-bezier(.35,.41,.06,.99) forwards;
+    }
+
+    @keyframes heartback1{
+        0%{
+            opacity: 1;
+            transform: scale(1);
+        }
+        100%{
+            opacity: 0;
+            transform: scale(0.9);
+        }
+    }
+    @mixin heartback {
+        animation: heartback1 2s 1s linear forwards;
+    }
+
+  
+  /*myAnimtop*/ 
+
+    @keyframes myAnimtop1 {
+        0% {
+            opacity: 0;
+        transform: translateY(-250px);
+        }
+  
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @mixin myAnimtop {
+        animation: myAnimtop1 6s 1s both;
+    }
+
+  /*animation green button*/ 
+
+    /*animation button*/
+        @keyframes bgreen1 {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+        @mixin bgreen {
+            animation: bgreen1 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+  
+    /*animation loader small spin*/
+        @keyframes move1 {
+            0% {
+                transform: rotate(-200deg);
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+        }
+        @mixin move {
+            animation: move1 1s; 
+        }

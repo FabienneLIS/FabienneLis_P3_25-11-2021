@@ -1,0 +1,14 @@
+body
+{
+    overflow: scroll;
+    @include marginlr0;
+    overflow-x: hidden;
+    font-family: $text;
+    background-color: lighten($color-background, 10%);
+    @include max-only{
+        max-width: 1800px;
+        @include marginlrauto;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+}

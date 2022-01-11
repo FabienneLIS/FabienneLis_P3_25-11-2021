@@ -2,122 +2,16 @@
 @import "./Utils/variables";
 @import "./Utils/mixins";
 @import "./Utils/responsives";
+@import "./Utils/keyframes";
 
-  /*keyframes*/
+@import "./Layouts/body";
+@import "./Layouts/loader";
+@import "./Layouts/footer";
 
-  /*myAnimright*/ 
 
-  @keyframes myAnimright {
-    0% {
-      opacity: 0;
-      transform: translateX(250px);
-    }
-  
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
 
-  /*myAnimtop*/ 
-
-  @keyframes myAnimtop {
-    0% {
-      opacity: 0;
-      transform: translateY(-250px);
-    }
-  
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /*animation green button*/ 
-
-    /*animation button*/
-        @keyframes bgreen {
-            0% {
-                transform: scaleX(0);
-            }
-            100% {
-                transform: scaleX(1);
-            }
-        }
-  
-    /*animation loader small spin*/
-        @keyframes move {
-            0% {
-                transform: rotate(-200deg);
-            }
-            100%{
-                transform: rotate(0deg);
-            }
-        }
-
-    /*animation loader*/
-
-         /*animation loader dissapear*/
-        @keyframes disappear {
-        from {
-            transform: scale(1);
-        }
-        to {
-            transform: scale(0)
-        }
-    }
-
-        /*animation loader spin*/
-        @keyframes spin {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    /*animation heart*/
-
-    @keyframes heart{
-        0%{
-            opacity: 0;
-            transform: translateY(0%);
-            transform: scale(0);
-        }
-        100% {
-            opacity: 1;
-            transform:translateY(10%);
-            transform: scale(1.1);
-        }
-    }
-
-    @keyframes heartback{
-        0%{
-            opacity: 1;
-            transform: scale(1);
-        }
-        100%{
-            opacity: 0;
-            transform: scale(0.9);
-        }
-    }
 /*scss*/ 
 
-body
-{
-    width: auto;
-    margin-left: 0%;
-    margin-right: 0%;
-    overflow: scroll;
-    font-family: $text;
-    background-color: lighten($color-background, 10%);
-    /*overflow-x: hidden;*/
-    @include max-only{
-        max-width: 1800px;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: scroll;
-        overflow-x: hidden;
-    }
-}
 
 h3
 {
@@ -140,24 +34,6 @@ img
     }
 }
 
-.loader{
-    background-color: lighten($color-secondary, 22%);
-    opacity: 0.9;
-    height: 100vh;
-    position: fixed;
-    inset: 0;
-    z-index: 3;
-    animation: disappear 400ms 1s forwards;
-    transform-origin: center;
-    display: grid;
-    place-items: center;
-    i{
-        opacity: 1;
-        animation: spin 1s infinite linear;
-        color: $color-primary;
-    }
-  }
-  
 .header
 {
     display: flex;
@@ -168,26 +44,20 @@ img
     @include tablette-only{
         width: 100%;
     }
-    @include mobile-only
-    {
-        width: 100%;
-    }
     &__icon{
         justify-content: left;
         margin-left: 6%;
-        /*margin-right: 10%;*/
-        color: black;
+        color: darken($color-background, 80%);
         &__link{
             cursor: pointer;
-            color: black;
+            color: darken($color-background, 80%);
             &:hover{
                 color: $color-primary;
             }
         }
     }
     &__logo{
-        display: flex;
-        justify-content: center;
+        @include flex-center;
         margin-left: 30%;
         &__img{
             @include tablette-only{
@@ -197,8 +67,8 @@ img
                 margin-right: 45%;
             }
             @include mobile-only{
-                width: 60%;
-                margin-left: 0%;
+                width: 50%;
+                margin-left: -25%;
                 margin-right: 45%;
             }
         }
@@ -206,24 +76,11 @@ img
 }
 
 .food{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
+    @include flex-column-center;
+    @include marginlr0;
     background-color: lighten($color-background, 10%);
     @include tablette-only{
-        width: 100%;
-        margin-left: 0%;
-        margin-right: 0%;
         background-color: $color-background; 
-    }
-    @include mobile-only{
-        width: 100%;
-        margin-left: 0%;
-        margin-right: 0%;
-        background-color: $color-background;
     }
     &__image{
         width: 100%;
@@ -237,16 +94,11 @@ img
             background-color: $color-background;
             border-radius: 2.5em;
         }
-        @include mobile-only{
-            background-color: $color-background;
-        }
         &__transition{
-            animation: myAnimtop 6s 1s both;
+            @include myAnimtop;
         }
         &__title{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flex-row-sb;
             margin-top: 10%;
             margin-bottom: 10%;
             padding-left: 16%;
@@ -255,8 +107,10 @@ img
             @include tablette-only{
                 padding-left: 6%;
                 padding-right: 6%;
+                font-size: 12px;
             }
             &__icon{
+               padding-top: 1.5%;
                 cursor: pointer;
                 color: $color-background;
                 i{
@@ -264,6 +118,7 @@ img
                 }
                 @include mobile-only{
                     margin-top: 0px;
+                    padding-top: 4%;
                 }
             }
         }    
@@ -271,43 +126,24 @@ img
         &__enter{
             border-bottom: 0.2em solid $color-tercery;
             width: 2.5em;
-            padding-bottom: 0.3em;
-            margin-bottom: 1em;
+            padding-bottom: 0.4%;
+            margin-bottom: 1%;
             margin-left: 48%;
             @include tablette-only{
                 align-items: left;
                 width: 2.5em;
-                padding-bottom: 0.3em;
-                margin-bottom: 1em;
+                padding-bottom: 0.6%;
+                margin-bottom: 1%;
                 margin-left: 4%; 
-            }
-            @include mobile-only{
-                align-items: left;
-                width: 2.5em;
-                padding-bottom: 0.3em;
-                margin-bottom: 1em;
-                margin-left: 4%;
             }
         }
         &__carte{
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
+            @include flex-center;
             flex-wrap: wrap;
             margin: 1%;
             text-align: center;
             @include tablette-only{
-                display: flex;
-                flex-direction: column;
-                border: none;
-                border-radius: 0%;
-                margin: 0%;
-                background-color: $color-background;
-                box-shadow: none;
-            }
-            @include mobile-only{
-                display: flex;
-                flex-direction: column;
+                @include flex-column;
                 border: none;
                 border-radius: 0%;
                 margin: 0%;
@@ -320,24 +156,19 @@ img
                 display: flex;
                 width: 31.25em;
                 height: 5em;
-                background-color: white;
+                background-color: lighten($color-background, 50%);
                 border: $color-background solid 1px;
                 border-radius: 20px;
                 box-shadow: $color-background 0em 0.32em 0.32em 0.062em;
-                margin-left: 2%;
-                margin-right: 2%;
-                margin-top: 2%;
-                margin-bottom: 2%;
+                @include margintb;
+                @include marginlr2;
                 padding-left: 1em;
                 overflow: hidden;
+                &:hover{
+                    cursor: pointer;
+                }
                 @include tablette-only{
                     width: 90%;
-                }
-                @include mobile-only{
-                    width: 90%;
-                    &:hover{
-                        cursor: pointer;
-                    }
                 }
                 &__text{
                     width: 80%;
@@ -354,19 +185,18 @@ img
                     }
                 }
                 &__price{
-                    display: flex;
-                    justify-content: center;
+                    @include flex-center;
                     align-items: flex-end;
                     width: 20%;
                     padding-bottom: 0.8em;
                     font-weight: bold;
                     @include mobile-only{
-                        width: 15%;
+                        width: 30%;
                     }
                 }
                 &__icon{
                     display: none;
-                    color: white;
+                    color: lighten($color-background, 50%);
                     justify-content: center;
                     align-items: center;
                     width: 0%;
@@ -382,13 +212,12 @@ img
     &__order{
         @include diplay-bloc; 
         background: linear-gradient(176deg,$color-secondary,40%, $color-primary);
-        color: white;
+        color: lighten($color-background, 50%);
         cursor: pointer;
         align-items: center;
         height: 3.75em;
         width: auto;
-        margin-left: 40%;
-        margin-right: 40%;
+        @include marginlr40;
         margin-top: 12%;
         margin-bottom: 24%;
         border-radius: 1.89em;
@@ -406,13 +235,7 @@ img
         padding-bottom: auto;
         @include tablette-only{
             width: auto;
-            margin-left: 30%;
-            margin-right: 30%;
-        }
-        @include mobile-only{
-            width: auto;
-            margin-left: 30%;
-            margin-right: 30%;
+            @include marginlr30;
         }
         &:hover{
             transform: scale(1.1);
@@ -422,7 +245,7 @@ img
 
 .heart--far{
     position: relative;
-    color: black;
+    color: darken($color-background, 80%);
 }
 .heart--fas{
     position: absolute;
@@ -444,11 +267,11 @@ img
 
 .food__menu__title__icon:hover .heart--fas
 {
-    animation: heart 2s 100ms cubic-bezier(.35,.41,.06,.99) forwards;
+    @include heart;
 }
 .food__menu__title__icon:hover .heart--far
 {
-    animation: heartback 2s 1s linear forwards;
+   @include heartback;
 }
 
 
@@ -458,90 +281,18 @@ img
         display: inline-flex;
         width: 15%;
         margin-right: 0em;
-        animation: bgreen 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        @include bgreen;
         @include mobile-only{
             width: 15%;
         }
     }
     i{
-        animation: move 1s;
+        @include move;
+    }
+    .food__menu__carte__ex__price
+    {
+        @include mobile-only{
+            width: 15%;
+        }
     }
 } 
-
-.footer
-{
-    display: flex;
-    flex-direction: column;
-    background-color: darken($color-background, 70%);
-    width: auto;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 1.25em;
-    padding: 2%;
-    @include tablette-only{
-        width: auto;
-        margin-left: 0%;
-        margin-right: 0%;
-        border-radius: 0em;
-    }
-    @include mobile-only{
-        width: auto;
-        margin-left: 0%;
-        margin-right: 0%;
-        border-radius: 0em;
-    }
-    &__title{
-        @include diplay-bloc;
-        text-align: center;
-        width: 80%;
-        /*font-size: 200%;*/
-        font-family: $logo-title;
-        color: white;
-        margin-top: 2%;
-        margin-bottom: 2.25em;
-        @include tablette-only{
-            width: 100%;
-            margin-left: 6%;
-            margin-bottom: 0em;
-            font-size: 80%;
-            text-align: left;
-        }
-        @include mobile-only{
-            width: 100%;
-            margin-left: 6%;
-            margin-bottom: 0em;
-            font-size: 70%;
-            text-align: left;
-        }
-        &footer__title--form{
-            @include mobile-only{
-                margin-bottom: 0.63em;
-            }
-        }
-    }
-    &__link
-    {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 2%;
-        margin-left: 2%;
-        margin-right: 2%;
-        font-size: 1.25em;
-        @include tablette-only{
-            @include flex-column;
-            margin-left: 6%;
-        }
-        @include mobile-only{
-            @include flex-column;
-            margin-left: 6%;
-       
-        }
-        &__a
-        {
-        text-decoration: none;
-        color: white;
-        padding-top: 0.31em;
-        padding-bottom: 0.31em;
-        }
-    }
-}

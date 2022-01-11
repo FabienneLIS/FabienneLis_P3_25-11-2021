@@ -1,18 +1,97 @@
 /*mixin*/
 
+/*flexbox*/
+
 @mixin flex-center {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-row-sb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@mixin flex-row-ai {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+}
 @mixin flex-column {
     display: flex;
     flex-direction: column;
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @mixin diplay-bloc {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/*margins*/
+
+@mixin marginlrauto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin marginlr0 {
+    width: auto;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+@mixin marginlr2 {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+@mixin marginlr4 {
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+@mixin marginlr6 {
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+@mixin marginlr10 {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+@mixin marginlr20 {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+@mixin marginlr30 {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+@mixin marginlr40 {
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+@mixin margintb {
+    margin-top: 2%;
+    margin-bottom: 2%;
 }

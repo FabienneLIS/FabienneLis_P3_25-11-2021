@@ -1,0 +1,55 @@
+.footer
+{
+    @include flex-column;
+    background-color: darken($color-background, 70%);
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 20px;
+    @include tablette-only{
+        @include marginlr0;
+        border-radius: 0px;
+        padding-bottom: 20px;
+    }
+    &__title{
+        @include diplay-bloc;
+        text-align: center;
+        width: 80%;
+        /*font-size: 200%;*/
+        font-family: $logo-title;
+        color: lighten($color-background, 50%);
+        margin-top: 2%;
+        margin-bottom: 36px;
+        @include tablette-only{
+            width: 100%;
+            margin-left: 6%;
+            margin-bottom: 0px;
+            font-size: 70%;
+            text-align: left;
+        }
+        &footer__title--form{
+            @include tablette-only{
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &__link
+    {
+    @include flex-row-sb;
+    @include marginlr2;
+    margin-bottom: 2%;
+    font-size: 20px;
+    @include tablette-only{
+        @include flex-column;
+        margin-left: 6%;
+       
+    }
+        &__a
+        {
+        text-decoration: none;
+        color: lighten($color-background, 50%);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+    }
+}
