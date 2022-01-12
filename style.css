@@ -91,6 +91,7 @@ body {
     margin-right: auto;
     overflow: scroll;
     overflow-x: hidden;
+    overflow-y: scroll;
     padding-right: -15px;
   }
 }
