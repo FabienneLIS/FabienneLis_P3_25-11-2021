@@ -79,6 +79,7 @@ img
     @include flex-column-center;
     @include marginlr0;
     background-color: lighten($color-background, 10%);
+    overflow: hidden;
     @include tablette-only{
         background-color: $color-background; 
     }
