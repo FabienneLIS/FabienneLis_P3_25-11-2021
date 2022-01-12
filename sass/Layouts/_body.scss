@@ -10,5 +10,6 @@ body
         @include marginlrauto;
         overflow: scroll;
         overflow-x: hidden;
+        padding-right: -15px;
     }
 }

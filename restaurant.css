@@ -254,6 +254,7 @@ img {
   margin-left: 0%;
   margin-right: 0%;
   background-color: white;
+  overflow: hidden;
 }
 @media screen and (max-width: 950px) {
   .food {
