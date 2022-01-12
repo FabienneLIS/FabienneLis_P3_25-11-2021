@@ -16,7 +16,8 @@ body
     @include tablette-only{
         width: 100%;
         overflow: scroll;
-        scrollbar-width: 0px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
         overflow-x: hidden;
         padding-right: -2%;
     }
