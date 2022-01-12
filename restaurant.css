@@ -90,6 +90,8 @@ body {
     margin-right: auto;
     overflow: scroll;
     overflow-x: hidden;
+    overflow-y: scroll;
+    padding-right: -2%;
   }
 }
 
@@ -230,19 +232,19 @@ img {
   justify-content: center;
   margin-left: 30%;
 }
+.header__logo img {
+  width: 26em;
+  height: auto;
+}
 @media screen and (max-width: 950px) {
-  .header__logo__img {
-    width: 60%;
+  .header__logo img {
+    width: 12em;
     height: auto;
-    margin-left: 0%;
-    margin-right: 45%;
   }
 }
 @media screen and (max-width: 599px) {
-  .header__logo__img {
-    width: 50%;
-    margin-left: -25%;
-    margin-right: 45%;
+  .header__logo img {
+    margin-left: -3.125em;
   }
 }
 

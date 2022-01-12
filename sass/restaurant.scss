@@ -59,21 +59,20 @@ img
     &__logo{
         @include flex-center;
         margin-left: 30%;
-        &__img{
+        img{
+            width: 26em;
+            height: auto;
             @include tablette-only{
-                width: 60%;
+                width: 12em;
                 height: auto;
-                margin-left: 0%;
-                margin-right: 45%;
             }
             @include mobile-only{
-                width: 50%;
-                margin-left: -25%;
-                margin-right: 45%;
-            }
+                margin-left: -3.125em;
+            }             
         }
     }
 }
+
 
 .food{
     @include flex-column-center;
