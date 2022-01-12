@@ -92,14 +92,14 @@ body {
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding-right: -2%;
   }
 }
 @media screen and (max-width: 950px) {
   body {
-    overflow: hidden;
+    width: 100%;
+    overflow: scroll;
     overflow-x: hidden;
-    overflow-y: hidden;
+    padding-right: -2%;
   }
 }
 
