@@ -13,4 +13,9 @@ body
         overflow-y: scroll;
         padding-right: -2%;
     }
+    @include tablette-only{
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
 }
