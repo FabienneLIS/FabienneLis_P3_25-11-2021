@@ -15,10 +15,13 @@ body
     }
     @include tablette-only{
         width: 100%;
-        overflow: scroll;
+        overflow-y: scroll;
         scrollbar-width: none;
         -ms-overflow-style: none;
         overflow-x: hidden;
-        padding-right: -2%;
+        /*padding-right: -2%;*/ 
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
