@@ -1,6 +1,6 @@
 body
 {
-    overflow: scroll;
+    overflow-y: scroll;
     @include marginlr0;
     overflow-x: hidden;
     font-family: $text;
@@ -8,7 +8,6 @@ body
     @include max-only{
         max-width: 1800px;
         @include marginlrauto;
-        overflow: scroll;
         overflow-x: hidden;
         overflow-y: scroll;
        
@@ -16,12 +15,12 @@ body
     @include tablette-only{
         width: 100%;
         overflow-y: scroll;
+        -ms-overflow-style: none; /* for Internet Explorer, Edge */
+        scrollbar-width: none; /* for Firefox */
         scrollbar-width: none;
-        -ms-overflow-style: none;
         overflow-x: hidden;
-        /*padding-right: -2%;*/ 
-        &::-webkit-scrollbar {
-            display: none;
+        &::-webkit-scrollbar{
+           display: none;
         }
     }
 }
