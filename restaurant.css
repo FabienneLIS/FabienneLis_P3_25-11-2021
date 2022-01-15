@@ -75,13 +75,16 @@
   }
 }
 body {
+  overflow: hidden;
   overflow-y: scroll;
   width: auto;
   margin-left: 0%;
   margin-right: 0%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   font-family: Roboto;
   background-color: white;
+  font-size: 0.95em;
 }
 @media screen and (max-width: 1800px) {
   body {
@@ -94,18 +97,18 @@ body {
 }
 @media screen and (max-width: 950px) {
   body {
-    width: 100%;
-    overflow-y: scroll;
+    width: auto;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
     -ms-overflow-style: none;
     /* for Internet Explorer, Edge */
     scrollbar-width: none;
     /* for Firefox */
-    scrollbar-width: none;
-    overflow-x: hidden;
   }
-  body::-webkit-scrollbar {
-    display: none;
-  }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .loader {
@@ -158,7 +161,7 @@ body {
 }
 @media screen and (max-width: 950px) {
   .footer__title {
-    width: 100%;
+    width: 94%;
     margin-left: 6%;
     margin-bottom: 0px;
     font-size: 70%;
