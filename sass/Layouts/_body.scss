@@ -1,10 +1,14 @@
+
 body
 {
+    overflow: hidden;
     overflow-y: scroll;
     @include marginlr0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     font-family: $text;
     background-color: lighten($color-background, 10%);
+    font-size: 0.95em;
     @include max-only{
         max-width: 1800px;
         @include marginlrauto;
@@ -13,14 +17,14 @@ body
        
     }
     @include tablette-only{
-        width: 100%;
-        overflow-y: scroll;
+        width: auto;
+        margin-left: 0 auto;
+        margin-right: 0 auto;
         -ms-overflow-style: none; /* for Internet Explorer, Edge */
-        scrollbar-width: none; /* for Firefox */
-        scrollbar-width: none;
-        overflow-x: hidden;
-        &::-webkit-scrollbar{
-           display: none;
-        }
+        scrollbar-width: none; /* for Firefox */    
     }
 }
+
+::-webkit-scrollbar{
+   display: none;
+  }
