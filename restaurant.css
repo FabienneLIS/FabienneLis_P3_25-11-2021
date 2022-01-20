@@ -47,12 +47,12 @@
 /*myAnimtop*/
 @keyframes myAnimtop1 {
   0% {
+    transform: translateY(22px);
     opacity: 0;
-    transform: translateY(-250px);
   }
   100% {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 /*animation green button*/
@@ -294,9 +294,6 @@ img {
     border-radius: 2.5em;
   }
 }
-.food__menu__transition {
-  animation: myAnimtop1 6s 1s both;
-}
 .food__menu__title {
   display: flex;
   flex-direction: row;
@@ -446,6 +443,7 @@ img {
   margin-top: 12%;
   margin-bottom: 24%;
   border-radius: 1.89em;
+  box-shadow: 0px 0px 11px 4px #c7c7c7;
   transform: scale(1);
   transition: transform 1000ms;
   padding-top: auto;
@@ -468,6 +466,8 @@ img {
 }
 .food__order:hover {
   transform: scale(1.1);
+  opacity: 0.9;
+  box-shadow: 0px 0px 11px 4px #9a9a9a;
 }
 
 .heart--far {
@@ -501,6 +501,18 @@ img {
 
 .food__menu__title__icon:hover .heart--far {
   animation: heartback1 2s 1s linear forwards;
+}
+
+.food__menu__cartea {
+  animation: myAnimtop1 1s 1000ms both;
+}
+
+.food__menu__carteb {
+  animation: myAnimtop1 1s 1200ms both;
+}
+
+.food__menu__cartec {
+  animation: myAnimtop1 1s 1400ms both;
 }
 
 .food__menu__carte__ex:hover .food__menu__carte__ex__icon {

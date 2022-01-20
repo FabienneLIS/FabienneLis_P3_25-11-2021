@@ -63,18 +63,24 @@
   /*myAnimtop*/ 
 
     @keyframes myAnimtop1 {
-        0% {
-            opacity: 0;
-        transform: translateY(-250px);
+        0% {   
+        transform: translateY(22px);
+        opacity: 0;
         }
   
         100% {
-            opacity: 1;
             transform: translateY(0);
+            opacity: 1;
         }
     }
-    @mixin myAnimtop {
-        animation: myAnimtop1 6s 1s both;
+    @mixin myAnimtopa {
+        animation: myAnimtop1 1s 1000ms both;
+    }
+    @mixin myAnimtopb {
+        animation: myAnimtop1 1s 1200ms both;
+    }
+    @mixin myAnimtopc {
+        animation: myAnimtop1 1s 1400ms both;
     }
 
   /*animation green button*/ 
