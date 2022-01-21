@@ -31,7 +31,7 @@
   100% {
     opacity: 1;
     transform: translateY(10%);
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 }
 @keyframes heartback1 {
@@ -281,7 +281,14 @@ img {
 }
 .food__image {
   width: 100%;
-  height: auto;
+  height: 1200px;
+  object-fit: cover;
+  background-position: center;
+}
+@media screen and (max-width: 950px) {
+  .food__image {
+    height: 500px;
+  }
 }
 .food__menu {
   text-align: center;
