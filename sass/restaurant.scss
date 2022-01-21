@@ -84,7 +84,12 @@ img
     }
     &__image{
         width: 100%;
-        height: auto;
+        height: 1200px;
+        object-fit: cover;
+        background-position: center;
+        @include tablette-only{
+            height: 500px;
+        }
     }
     &__menu{
         text-align: center;
